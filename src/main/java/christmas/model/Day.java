@@ -1,5 +1,7 @@
 package christmas.model;
 
+import java.time.DayOfWeek;
+
 public enum Day {
     SUNDAY(true),
     MONDAY(true),
@@ -14,6 +16,10 @@ public enum Day {
 
     Day(boolean weekDayFlag) {
         this.weekDayFlag = weekDayFlag;
+    }
+
+    public static Day of(DayOfWeek dayOfWeek) {
+        return Day.valueOf(dayOfWeek.name());
     }
 
     public boolean isWeekDay() {

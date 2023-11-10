@@ -1,6 +1,8 @@
 package christmas.model;
 
 import christmas.message.ErrorMessage;
+
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class DecemberDate {
@@ -23,5 +25,10 @@ public class DecemberDate {
 
     private boolean isOutOfRangeDate(int date) {
         return date < MIN_DATE || date > MAX_DATE;
+    }
+
+    public Day getDay() {
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        return Day.of(dayOfWeek);
     }
 }
