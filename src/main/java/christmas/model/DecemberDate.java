@@ -31,4 +31,8 @@ public class DecemberDate {
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         return Day.of(dayOfWeek);
     }
+
+    public int getDate() {
+        return date.getDayOfMonth();
+    }
 }
