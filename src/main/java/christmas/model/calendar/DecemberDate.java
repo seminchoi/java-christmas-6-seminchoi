@@ -1,7 +1,6 @@
-package christmas.model;
+package christmas.model.calendar;
 
 import christmas.message.ErrorMessage;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
