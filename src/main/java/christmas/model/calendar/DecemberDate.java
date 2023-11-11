@@ -9,6 +9,8 @@ public class DecemberDate {
     private static final int MONTH = 12;
     private static final int MIN_DATE = 1;
     private static final int MAX_DATE = 31;
+    private static final int CHRISTMAS_DATE = 25;
+
     private final LocalDate date;
 
     public DecemberDate(int date) {
@@ -37,5 +39,9 @@ public class DecemberDate {
 
     public boolean isWeekDay() {
         return getDay().isWeekDay();
+    }
+
+    public boolean isChristmas() {
+        return getDate() == CHRISTMAS_DATE;
     }
 }
