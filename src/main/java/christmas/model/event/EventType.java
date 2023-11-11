@@ -2,7 +2,7 @@ package christmas.model.event;
 
 import static christmas.model.event.EventClassification.DISCOUNT;
 import static christmas.model.event.EventClassification.MENU_GIFT;
-import static christmas.model.event.EventClassification.PERFORMANCE;
+import static christmas.model.event.EventClassification.BADGE;
 
 public enum EventType {
     CHRISTMAS_DISCOUNT(DISCOUNT, "크리스마스 디데이 할인"),
@@ -12,7 +12,7 @@ public enum EventType {
 
     CHAMPAGNE_GIFT(MENU_GIFT, "증정 이벤트"),
 
-    DECEMBER_BADGE(PERFORMANCE, "12월 이벤트 배지")
+    DECEMBER_BADGE(BADGE, "12월 이벤트 배지")
     ;
 
     private final EventClassification classification;
