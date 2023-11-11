@@ -2,7 +2,7 @@ package christmas.model;
 
 import christmas.message.ErrorMessage;
 
-public class ClientOrderMenu extends OrderMenu {
+public class ClientOrders extends Orders {
     private final static int MAX_COUNT = 20;
 
     public void validate() {
