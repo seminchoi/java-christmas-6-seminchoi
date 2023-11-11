@@ -11,11 +11,11 @@ public class SpecialDiscountEvent implements DiscountEvent {
     private final static int DISCOUNT_AMOUNT = 1000;
 
     @Override
-    public int apply(final DecemberDate decemberDate, final ClientOrders orderMenu) {
+    public void apply(final DiscountResult result, final DecemberDate decemberDate, final ClientOrders orderMenu) {
         if(isEventActive(decemberDate)) {
-            return calculateDiscountAmount();
+            int discountAmount = calculateDiscountAmount();
+            result.addResult(getType(), discountAmount);
         }
-        return 0;
     }
 
     private int calculateDiscountAmount() {

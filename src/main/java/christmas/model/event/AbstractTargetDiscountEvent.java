@@ -12,11 +12,11 @@ public abstract class AbstractTargetDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public int apply(final DecemberDate decemberDate, final ClientOrders orderMenu) {
+    public void apply(final DiscountResult result, final DecemberDate decemberDate, final ClientOrders orders) {
         if(isEventActive(decemberDate)) {
-            return calculateDiscountAmount(orderMenu);
+            int discountAmount = calculateDiscountAmount(orders);
+            result.addResult(getType(), discountAmount);
         }
-        return 0;
     }
 
     abstract boolean isEventActive(final DecemberDate decemberDate);

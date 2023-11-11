@@ -7,25 +7,23 @@ import christmas.model.calendar.DecemberDate;
 
 public class ChristmasDiscountEvent implements DiscountEvent {
     private final static EventType type = CHRISTMAS_DISCOUNT;
-    private final static int END_DATE = 25;
     private final static int BASIC_DISCOUNT_AMOUNT = 1000;
     private final static int ADDITIONAL_DISCOUNT_AMOUNT_PER_DATE = 100;
 
     @Override
-    public int apply(final DecemberDate decemberDate, final ClientOrders orderMenu) {
-        int date = decemberDate.getDate();
-        return calculateDiscountAmount(date);
+    public void apply(final DiscountResult result, final DecemberDate decemberDate, final ClientOrders orderMenu) {
+        if (isEventActive(decemberDate)) {
+            int discountAmount = calculateDiscountAmount(decemberDate.getDate());
+            result.addResult(getType(), discountAmount);
+        }
     }
 
-    private int calculateDiscountAmount(int date) {
-        if(isOver(date)) {
-            return 0;
-        }
+    private int calculateDiscountAmount(final int date) {
         return BASIC_DISCOUNT_AMOUNT + ((date - 1) * ADDITIONAL_DISCOUNT_AMOUNT_PER_DATE);
     }
 
-    private boolean isOver(int date) {
-        return date > END_DATE;
+    private boolean isEventActive(final DecemberDate decemberDate) {
+        return decemberDate.isNotOverChristmas();
     }
 
     @Override
