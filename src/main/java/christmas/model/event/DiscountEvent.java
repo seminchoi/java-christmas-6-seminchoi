@@ -4,5 +4,5 @@ import christmas.model.ClientOrders;
 import christmas.model.calendar.DecemberDate;
 
 public interface DiscountEvent extends Event {
-    int apply(final DecemberDate date, final ClientOrders orderMenu);
+    int apply(final DecemberDate decemberDate, final ClientOrders orderMenu);
 }
