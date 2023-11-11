@@ -2,7 +2,6 @@ package christmas.model;
 
 import java.util.EnumMap;
 import java.util.Iterator;
-import java.util.Map;
 
 public abstract class Orders implements Iterable<Menu> {
 
@@ -15,5 +14,12 @@ public abstract class Orders implements Iterable<Menu> {
 
     public void addOrder(Menu menu, int count) {
         orderMenus.put(menu, count);
+    }
+
+    public int getCountByMenu(Menu menu) {
+        if (orderMenus.containsKey(menu)) {
+            return orderMenus.get(menu);
+        }
+        return 0;
     }
 }
