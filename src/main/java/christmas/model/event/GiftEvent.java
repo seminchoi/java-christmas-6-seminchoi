@@ -4,5 +4,5 @@ import christmas.model.ClientOrders;
 import christmas.model.GiftOrders;
 
 public interface GiftEvent extends Event {
-    GiftOrders apply(ClientOrders clientOrders);
+    GiftOrders apply(GiftOrders giftOrders, ClientOrders clientOrders);
 }
