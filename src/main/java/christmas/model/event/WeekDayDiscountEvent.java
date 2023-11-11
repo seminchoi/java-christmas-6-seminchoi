@@ -7,13 +7,13 @@ import christmas.model.Menu;
 import christmas.model.MenuCategory;
 import christmas.model.calendar.DecemberDate;
 
-public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent<MenuCategory> {
+public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
     private final static EventType type = WEEK_DAY_DISCOUNT;
-    private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
     private final static MenuCategory TARGET_CATEGORY = DESSERT;
+    private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
 
     public WeekDayDiscountEvent() {
-        super(COUNT_PER_DISCOUNT_AMOUNT, TARGET_CATEGORY);
+        super(COUNT_PER_DISCOUNT_AMOUNT);
     }
 
     @Override

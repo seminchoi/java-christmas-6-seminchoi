@@ -4,13 +4,11 @@ import christmas.model.ClientOrders;
 import christmas.model.Menu;
 import christmas.model.calendar.DecemberDate;
 
-public abstract class AbstractTargetDiscountEvent<T> implements DiscountEvent {
+public abstract class AbstractTargetDiscountEvent implements DiscountEvent {
     private final int countPerDiscountAmount;
-    protected final T discountTarget;
 
-    protected AbstractTargetDiscountEvent(final int countPerDiscountAmount, final T discountTarget) {
+    protected AbstractTargetDiscountEvent(final int countPerDiscountAmount) {
         this.countPerDiscountAmount = countPerDiscountAmount;
-        this.discountTarget = discountTarget;
     }
 
     @Override
