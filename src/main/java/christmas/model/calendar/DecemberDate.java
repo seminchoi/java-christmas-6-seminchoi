@@ -44,4 +44,8 @@ public class DecemberDate {
     public boolean isChristmas() {
         return getDate() == CHRISTMAS_DATE;
     }
+
+    public boolean isBeforeChristmas() {
+        return getDate() <= CHRISTMAS_DATE;
+    }
 }
