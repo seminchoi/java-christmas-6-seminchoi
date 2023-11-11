@@ -12,14 +12,27 @@ public abstract class Orders implements Iterable<Menu> {
         return orderMenus.keySet().stream().iterator();
     }
 
-    public void addOrder(Menu menu, int count) {
+    public void addOrder(final Menu menu, final int count) {
         orderMenus.put(menu, count);
     }
 
-    public int getCountByMenu(Menu menu) {
+    public int getCountByMenu(final Menu menu) {
         if (orderMenus.containsKey(menu)) {
             return orderMenus.get(menu);
         }
         return 0;
+    }
+
+    public int sumTotalAmount() {
+        int totalAmount = 0;
+        for (Menu menu : orderMenus.keySet()) {
+            totalAmount += calculateMenuAmount(menu);
+        }
+        return totalAmount;
+    }
+
+    private int calculateMenuAmount(final Menu menu) {
+        int menuOrderCount = orderMenus.get(menu);
+        return menu.getPrice() * menuOrderCount;
     }
 }
