@@ -12,7 +12,7 @@ public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
     private final static MenuCategory TARGET_CATEGORY = MAIN;
     private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
 
-    protected WeekendDiscountEvent() {
+    public WeekendDiscountEvent() {
         super(COUNT_PER_DISCOUNT_AMOUNT);
     }
 
