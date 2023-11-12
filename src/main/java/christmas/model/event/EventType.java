@@ -1,8 +1,8 @@
 package christmas.model.event;
 
-import static christmas.model.event.EventClassification.DISCOUNT;
-import static christmas.model.event.EventClassification.MENU_GIFT;
-import static christmas.model.event.EventClassification.BADGE;
+import static christmas.model.event.EventCategory.DISCOUNT;
+import static christmas.model.event.EventCategory.MENU_GIFT;
+import static christmas.model.event.EventCategory.BADGE;
 
 public enum EventType {
     CHRISTMAS_DISCOUNT(DISCOUNT, "크리스마스 디데이 할인"),
@@ -15,11 +15,11 @@ public enum EventType {
     DECEMBER_BADGE(BADGE, "12월 이벤트 배지")
     ;
 
-    private final EventClassification classification;
+    private final EventCategory category;
     private final String description;
 
-    EventType(EventClassification classification, String description) {
-        this.classification = classification;
+    EventType(EventCategory category, String description) {
+        this.category = category;
         this.description = description;
     }
 
@@ -27,7 +27,7 @@ public enum EventType {
         return description;
     }
 
-    public EventClassification getClassification() {
-        return classification;
+    public EventCategory getCategory() {
+        return category;
     }
 }

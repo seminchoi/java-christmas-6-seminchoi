@@ -1,6 +1,6 @@
 package christmas.model.event;
 
-public enum EventClassification {
+public enum EventCategory {
     DISCOUNT,
     MENU_GIFT,
     BADGE

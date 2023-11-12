@@ -5,8 +5,8 @@ public interface Event extends Comparable<Event> {
 
     @Override
     default int compareTo(final Event event) {
-        EventClassification category = getType().getClassification();
-        EventClassification comparedCategory = event.getType().getClassification();
+        EventCategory category = getType().getCategory();
+        EventCategory comparedCategory = event.getType().getCategory();
         return category.compareTo(comparedCategory);
     }
 }
