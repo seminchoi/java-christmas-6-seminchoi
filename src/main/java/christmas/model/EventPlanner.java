@@ -39,6 +39,6 @@ public class EventPlanner {
         int totalBenefitAmount = 0;
         totalBenefitAmount += discountResult.sumTotalDiscountAmount();
         totalBenefitAmount += giftOrders.sumTotalAmount();
-        return sumTotalBenefitAmount();
+        return totalBenefitAmount;
     }
 }
