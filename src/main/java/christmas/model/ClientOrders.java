@@ -12,9 +12,9 @@ public class ClientOrders extends Orders {
         }
     }
 
-    public void validateTotalCount(int totalCount) {
+    public void validateTotalCount(final int totalCount) {
         if (isOverMaxCount(totalCount)) {
-            throw new IllegalArgumentException(ErrorMessage.TOO_MANY_ORDERS.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDERS.getMessage());
         }
     }
 

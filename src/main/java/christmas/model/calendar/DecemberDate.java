@@ -20,7 +20,7 @@ public class DecemberDate {
 
     private void validate(int date) {
         if (isOutOfRangeDate(date)) {
-            throw new IllegalArgumentException(ErrorMessage.OUT_OF_RANGE_DATE.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE.getMessage());
         }
     }
 
