@@ -34,4 +34,11 @@ public class EventPlanner {
     public Badges getBadges() {
         return badges;
     }
+
+    public int sumTotalBenefitAmount() {
+        int totalBenefitAmount = 0;
+        totalBenefitAmount += discountResult.sumTotalDiscountAmount();
+        totalBenefitAmount += giftOrders.sumTotalAmount();
+        return sumTotalBenefitAmount();
+    }
 }
