@@ -6,7 +6,6 @@ import christmas.model.Badge;
 import christmas.model.Badges;
 import christmas.model.DecemberBadge;
 import christmas.model.EventPlanner;
-
 import java.util.Optional;
 
 public class DecemberBadgeEvent implements Event {
@@ -14,7 +13,11 @@ public class DecemberBadgeEvent implements Event {
 
     @Override
     public void apply(final EventPlanner eventPlanner) {
-        //TODO : 구현
+        int totalBenefitAmount = eventPlanner.sumTotalBenefitAmount();
+        Optional<Badge> optionalBadge = DecemberBadge.findByBenefitAmount(totalBenefitAmount);
+
+        Badges badges = eventPlanner.getBadges();
+        optionalBadge.ifPresent(badges::add);
     }
 
     @Override
