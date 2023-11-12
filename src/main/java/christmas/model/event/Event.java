@@ -1,12 +1,16 @@
 package christmas.model.event;
 
+import christmas.model.EventPlanner;
+
 public interface Event extends Comparable<Event> {
-    EventKind getType();
+    EventKind getKind();
+
+    void apply(final EventPlanner eventPlanner);
 
     @Override
     default int compareTo(final Event event) {
-        EventCategory category = getType().getCategory();
-        EventCategory comparedCategory = event.getType().getCategory();
+        EventCategory category = getKind().getCategory();
+        EventCategory comparedCategory = event.getKind().getCategory();
         return category.compareTo(comparedCategory);
     }
 }

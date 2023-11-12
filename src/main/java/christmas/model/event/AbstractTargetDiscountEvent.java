@@ -1,10 +1,11 @@
 package christmas.model.event;
 
 import christmas.model.ClientOrders;
+import christmas.model.EventPlanner;
 import christmas.model.Menu;
 import christmas.model.calendar.DecemberDate;
 
-public abstract class AbstractTargetDiscountEvent implements DiscountEvent {
+public abstract class AbstractTargetDiscountEvent implements Event {
     private final int countPerDiscountAmount;
 
     protected AbstractTargetDiscountEvent(final int countPerDiscountAmount) {
@@ -12,14 +13,18 @@ public abstract class AbstractTargetDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public void apply(final DiscountResult result, final DecemberDate decemberDate, final ClientOrders orders) {
-        if(isEventActive(decemberDate)) {
-            int discountAmount = calculateDiscountAmount(orders);
-            result.addResult(getType(), discountAmount);
+    public void apply(final EventPlanner eventPlanner) {
+        DecemberDate plannedVisitDate = eventPlanner.getPlannedVisitDate();
+        if(isEventActive(plannedVisitDate)) {
+            ClientOrders clientOrders = eventPlanner.getClientOrders();
+            int discountAmount = calculateDiscountAmount(clientOrders);
+
+            DiscountResult result = eventPlanner.getDiscountResult();
+            result.addResult(getKind(), discountAmount);
         }
     }
 
-    abstract boolean isEventActive(final DecemberDate decemberDate);
+    abstract boolean isEventActive(final DecemberDate plannedVisitDate);
 
     private int calculateDiscountAmount(final ClientOrders orderMenu) {
         return sumTargetMenuCount(orderMenu) * countPerDiscountAmount;

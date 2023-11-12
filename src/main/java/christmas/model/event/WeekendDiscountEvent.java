@@ -8,7 +8,7 @@ import static christmas.model.MenuCategory.MAIN;
 import static christmas.model.event.EventKind.WEEKEND_DISCOUNT;
 
 public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
-    private final static EventKind type = WEEKEND_DISCOUNT;
+    private final static EventKind kind = WEEKEND_DISCOUNT;
     private final static MenuCategory TARGET_CATEGORY = MAIN;
     private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
 
@@ -16,15 +16,15 @@ public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
         super(COUNT_PER_DISCOUNT_AMOUNT);
     }
 
-    boolean isEventActive(final DecemberDate decemberDate) {
-        return !decemberDate.isWeekDay();
+    boolean isEventActive(final DecemberDate plannedVisitDate) {
+        return !plannedVisitDate.isWeekDay();
     }
     boolean isTarget(final Menu menu) {
         return menu.getCategory() == TARGET_CATEGORY;
     }
 
     @Override
-    public EventKind getType() {
-        return type;
+    public EventKind getKind() {
+        return kind;
     }
 }

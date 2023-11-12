@@ -8,7 +8,7 @@ import christmas.model.MenuCategory;
 import christmas.model.calendar.DecemberDate;
 
 public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
-    private final static EventKind type = WEEK_DAY_DISCOUNT;
+    private final static EventKind kind = WEEK_DAY_DISCOUNT;
     private final static MenuCategory TARGET_CATEGORY = DESSERT;
     private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
 
@@ -17,8 +17,8 @@ public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
     }
 
     @Override
-    boolean isEventActive(DecemberDate decemberDate) {
-        return decemberDate.isWeekDay();
+    boolean isEventActive(DecemberDate plannedVisitDate) {
+        return plannedVisitDate.isWeekDay();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
     }
 
     @Override
-    public EventKind getType() {
-        return type;
+    public EventKind getKind() {
+        return kind;
     }
 }
