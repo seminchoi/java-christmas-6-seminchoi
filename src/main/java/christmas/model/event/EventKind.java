@@ -4,7 +4,7 @@ import static christmas.model.event.EventCategory.DISCOUNT;
 import static christmas.model.event.EventCategory.MENU_GIFT;
 import static christmas.model.event.EventCategory.BADGE;
 
-public enum EventType {
+public enum EventKind {
     CHRISTMAS_DISCOUNT(DISCOUNT, "크리스마스 디데이 할인"),
     WEEK_DAY_DISCOUNT(DISCOUNT, "평일 할인"),
     WEEKEND_DISCOUNT(DISCOUNT, "주말 할인"),
@@ -18,7 +18,7 @@ public enum EventType {
     private final EventCategory category;
     private final String description;
 
-    EventType(EventCategory category, String description) {
+    EventKind(EventCategory category, String description) {
         this.category = category;
         this.description = description;
     }

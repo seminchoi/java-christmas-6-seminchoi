@@ -5,10 +5,10 @@ import christmas.model.MenuCategory;
 import christmas.model.calendar.DecemberDate;
 
 import static christmas.model.MenuCategory.MAIN;
-import static christmas.model.event.EventType.WEEKEND_DISCOUNT;
+import static christmas.model.event.EventKind.WEEKEND_DISCOUNT;
 
 public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
-    private final static EventType type = WEEKEND_DISCOUNT;
+    private final static EventKind type = WEEKEND_DISCOUNT;
     private final static MenuCategory TARGET_CATEGORY = MAIN;
     private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
 
@@ -24,7 +24,7 @@ public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
     }
 
     @Override
-    public EventType getType() {
+    public EventKind getType() {
         return type;
     }
 }

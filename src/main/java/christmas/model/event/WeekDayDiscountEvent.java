@@ -1,14 +1,14 @@
 package christmas.model.event;
 
 import static christmas.model.MenuCategory.DESSERT;
-import static christmas.model.event.EventType.WEEK_DAY_DISCOUNT;
+import static christmas.model.event.EventKind.WEEK_DAY_DISCOUNT;
 
 import christmas.model.Menu;
 import christmas.model.MenuCategory;
 import christmas.model.calendar.DecemberDate;
 
 public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
-    private final static EventType type = WEEK_DAY_DISCOUNT;
+    private final static EventKind type = WEEK_DAY_DISCOUNT;
     private final static MenuCategory TARGET_CATEGORY = DESSERT;
     private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
 
@@ -27,7 +27,7 @@ public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
     }
 
     @Override
-    public EventType getType() {
+    public EventKind getType() {
         return type;
     }
 }

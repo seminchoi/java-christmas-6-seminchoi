@@ -1,12 +1,12 @@
 package christmas.model.event;
 
-import static christmas.model.event.EventType.CHRISTMAS_DISCOUNT;
+import static christmas.model.event.EventKind.CHRISTMAS_DISCOUNT;
 
 import christmas.model.ClientOrders;
 import christmas.model.calendar.DecemberDate;
 
 public class ChristmasDiscountEvent implements DiscountEvent {
-    private final static EventType type = CHRISTMAS_DISCOUNT;
+    private final static EventKind type = CHRISTMAS_DISCOUNT;
     private final static int BASIC_DISCOUNT_AMOUNT = 1000;
     private final static int ADDITIONAL_DISCOUNT_AMOUNT_PER_DATE = 100;
 
@@ -27,7 +27,7 @@ public class ChristmasDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public EventType getType() {
+    public EventKind getType() {
         return type;
     }
 }

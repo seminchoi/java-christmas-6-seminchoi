@@ -1,7 +1,7 @@
 package christmas.model.event;
 
 public interface Event extends Comparable<Event> {
-    EventType getType();
+    EventKind getType();
 
     @Override
     default int compareTo(final Event event) {
