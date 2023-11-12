@@ -6,13 +6,32 @@ import christmas.model.event.DiscountResult;
 public class EventPlanner {
     private final DecemberDate plannedVisitDate;
     private final ClientOrders clientOrders;
-
-    private GiftOrders giftOrders;
-    private DiscountResult discountResult;
-    private Badges badges;
+    private final GiftOrders giftOrders = new GiftOrders();
+    private final DiscountResult discountResult = new DiscountResult();
+    private final Badges badges = new Badges();
 
     public EventPlanner(DecemberDate plannedVisitDate, ClientOrders clientOrders) {
         this.plannedVisitDate = plannedVisitDate;
         this.clientOrders = clientOrders;
+    }
+
+    public DecemberDate getPlannedVisitDate() {
+        return plannedVisitDate;
+    }
+
+    public ClientOrders getClientOrders() {
+        return clientOrders;
+    }
+
+    public GiftOrders getGiftOrders() {
+        return giftOrders;
+    }
+
+    public DiscountResult getDiscountResult() {
+        return discountResult;
+    }
+
+    public Badges getBadges() {
+        return badges;
     }
 }
