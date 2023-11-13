@@ -2,6 +2,7 @@ package christmas.model;
 
 import christmas.model.calendar.DecemberDate;
 import christmas.model.event.DiscountResult;
+import christmas.model.event.EventKind;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;
@@ -15,6 +16,10 @@ public class EventPlanner {
         this.clientOrders = clientOrders;
     }
 
+    public void addGiftOrder(final EventKind eventKind, final Menu menu, final int count) {
+        giftResult.addGiftOrder(eventKind, menu, count);
+    }
+
     public DecemberDate getVisitPlanDate() {
         return visitPlanDate;
     }
@@ -23,8 +28,8 @@ public class EventPlanner {
         return clientOrders;
     }
 
-    public GiftResult getGiftOrders() {
-        return giftResult;
+    public GiftOrders getGiftOrders() {
+        return giftResult.getOrders();
     }
 
     public DiscountResult getDiscountResult() {

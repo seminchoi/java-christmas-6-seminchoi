@@ -7,7 +7,7 @@ import java.util.Map;
 public class GiftResult {
     Map<EventKind, GiftOrders> result = new EnumMap<>(EventKind.class);
 
-    public void addGift(final EventKind kind, final Menu menu, final int count) {
+    public void addGiftOrder(final EventKind kind, final Menu menu, final int count) {
         GiftOrders orders = result.getOrDefault(kind, new GiftOrders());
         orders.addOrder(menu, count);
     }

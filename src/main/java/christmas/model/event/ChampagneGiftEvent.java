@@ -5,7 +5,6 @@ import static christmas.model.event.EventKind.MENU_GIFT;
 
 import christmas.model.ClientOrders;
 import christmas.model.EventPlanner;
-import christmas.model.GiftResult;
 import christmas.model.Menu;
 
 public class ChampagneGiftEvent implements Event {
@@ -18,8 +17,7 @@ public class ChampagneGiftEvent implements Event {
     public void apply(final EventPlanner eventPlanner) {
         final ClientOrders clientOrders = eventPlanner.getClientOrders();
         if(isSatisfiedEventConditions(clientOrders)) {
-            final GiftResult giftResult = eventPlanner.getGiftOrders();
-            giftResult.addGift(kind, GIFT_MENU, GIFT_COUNT);
+            eventPlanner.addGiftOrder(kind, GIFT_MENU, GIFT_COUNT);
         }
     }
 
