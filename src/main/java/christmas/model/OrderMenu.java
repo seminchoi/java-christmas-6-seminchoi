@@ -8,4 +8,8 @@ public class OrderMenu {
         this.menu = menu;
         this.count = count;
     }
+
+    public int calculateOrderAmount() {
+        return menu.getPrice() * count;
+    }
 }
