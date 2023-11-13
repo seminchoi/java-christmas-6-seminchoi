@@ -16,8 +16,7 @@ public class SpecialDiscountEvent implements Event {
         if(isEventActive(visitPlanDate)) {
             int discountAmount = calculateDiscountAmount();
 
-            DiscountResult result = eventPlanner.getDiscountResult();
-            result.addResult(getKind(), discountAmount);
+            eventPlanner.addDiscountResult(getKind(), discountAmount);
         }
     }
 

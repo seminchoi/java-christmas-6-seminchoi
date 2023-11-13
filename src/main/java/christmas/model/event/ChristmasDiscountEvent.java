@@ -15,8 +15,7 @@ public class ChristmasDiscountEvent implements Event {
         DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
         if (isEventActive(visitPlanDate)) {
             int discountAmount = calculateDiscountAmount(visitPlanDate.getDate());
-            DiscountResult result = eventPlanner.getDiscountResult();
-            result.addResult(getKind(), discountAmount);
+            eventPlanner.addDiscountResult(getKind(), discountAmount);
         }
     }
 

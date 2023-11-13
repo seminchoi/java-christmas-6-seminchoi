@@ -3,6 +3,7 @@ package christmas.model;
 import christmas.model.calendar.DecemberDate;
 import christmas.model.event.DiscountResult;
 import christmas.model.event.EventKind;
+import java.util.Map;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;
@@ -20,6 +21,11 @@ public class EventPlanner {
         giftResult.addGiftOrder(eventKind, menu, count);
     }
 
+    public void addDiscountResult(final EventKind eventKind, final int discountAmount) {
+        discountResult.addResult(eventKind, discountAmount);
+    }
+
+
     public DecemberDate getVisitPlanDate() {
         return visitPlanDate;
     }
@@ -32,8 +38,8 @@ public class EventPlanner {
         return giftResult.getOrders();
     }
 
-    public DiscountResult getDiscountResult() {
-        return discountResult;
+    public Map<EventKind, Integer> getDiscountResult() {
+        return discountResult.getResult();
     }
 
     public Badges getBadges() {

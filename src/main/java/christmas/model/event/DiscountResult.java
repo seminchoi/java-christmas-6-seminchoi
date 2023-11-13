@@ -1,5 +1,6 @@
 package christmas.model.event;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -16,5 +17,9 @@ public class DiscountResult {
             totalDiscountAmount += discountAmount;
         }
         return totalDiscountAmount;
+    }
+
+    public Map<EventKind, Integer> getResult() {
+        return Collections.unmodifiableMap(result);
     }
 }
