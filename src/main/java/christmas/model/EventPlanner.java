@@ -29,6 +29,11 @@ public class EventPlanner {
         return benefitResult.sumTotalBenefitAmount();
     }
 
+    public int calculatePaymentAmount() {
+        int totalAmount = clientOrders.sumTotalAmount() + giftOrders.sumTotalAmount();
+        return totalAmount - sumTotalBenefitAmount();
+    }
+
     public DecemberDate getVisitPlanDate() {
         return visitPlanDate;
     }
