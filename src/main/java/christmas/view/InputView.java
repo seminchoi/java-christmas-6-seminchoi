@@ -2,6 +2,7 @@ package christmas.view;
 
 import static christmas.message.ErrorMessage.INVALID_DATE;
 import static christmas.message.ErrorMessage.INVALID_ORDERS;
+import static christmas.message.InputMessage.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.message.ErrorMessage;
@@ -14,13 +15,13 @@ import java.util.NoSuchElementException;
 
 public class InputView {
     public int readDate() {
-        System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
+        System.out.println(VISIT_PLAN_DATE.getMessage());
         final String input = Console.readLine();
         return parseIntOrThrow(input, INVALID_DATE);
     }
 
     public Map<String, Integer> readOrders() {
-        System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
+        System.out.println(ORDERS.getMessage());
         final String input = Console.readLine();
         return parseOrders(input);
     }
@@ -38,7 +39,7 @@ public class InputView {
 
     private void addOrder(final Map<String, Integer> orders, final Iterator<String> iterator) {
         try {
-            String menu = iterator.next();
+            String menu = iterator.next().trim();
             validateMenu(orders, menu);
             int amount = parseIntOrThrow(iterator.next(), INVALID_ORDERS);
             orders.put(menu, amount);
