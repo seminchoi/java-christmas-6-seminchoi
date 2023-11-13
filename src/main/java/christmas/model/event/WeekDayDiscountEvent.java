@@ -17,8 +17,8 @@ public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {
     }
 
     @Override
-    boolean isEventActive(final DecemberDate plannedVisitDate) {
-        return plannedVisitDate.isWeekDay();
+    boolean isEventActive(final DecemberDate visitPlanDate) {
+        return visitPlanDate.isWeekDay();
     }
 
     @Override

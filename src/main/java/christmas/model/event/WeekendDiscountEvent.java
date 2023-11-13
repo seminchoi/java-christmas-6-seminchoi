@@ -16,8 +16,8 @@ public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
         super(COUNT_PER_DISCOUNT_AMOUNT);
     }
 
-    boolean isEventActive(final DecemberDate plannedVisitDate) {
-        return !plannedVisitDate.isWeekDay();
+    boolean isEventActive(final DecemberDate visitPlanDate) {
+        return !visitPlanDate.isWeekDay();
     }
     boolean isTarget(final Menu menu) {
         return menu.getCategory() == TARGET_CATEGORY;

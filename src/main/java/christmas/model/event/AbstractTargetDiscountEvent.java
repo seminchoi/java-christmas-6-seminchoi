@@ -14,8 +14,8 @@ public abstract class AbstractTargetDiscountEvent implements Event {
 
     @Override
     public void apply(final EventPlanner eventPlanner) {
-        DecemberDate plannedVisitDate = eventPlanner.getPlannedVisitDate();
-        if(isEventActive(plannedVisitDate)) {
+        DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
+        if(isEventActive(visitPlanDate)) {
             ClientOrders clientOrders = eventPlanner.getClientOrders();
             int discountAmount = calculateDiscountAmount(clientOrders);
 
@@ -24,7 +24,7 @@ public abstract class AbstractTargetDiscountEvent implements Event {
         }
     }
 
-    abstract boolean isEventActive(final DecemberDate plannedVisitDate);
+    abstract boolean isEventActive(final DecemberDate visitPlanDate);
 
     private int calculateDiscountAmount(final ClientOrders orderMenu) {
         return sumTargetMenuCount(orderMenu) * countPerDiscountAmount;
