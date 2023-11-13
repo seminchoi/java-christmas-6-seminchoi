@@ -17,7 +17,7 @@ public class DecemberBadgeEvent implements Event {
         Optional<Badge> optionalBadge = DecemberBadge.findByBenefitAmount(totalBenefitAmount);
 
         Badges badges = eventPlanner.getBadges();
-        optionalBadge.ifPresent(badges::add);
+        optionalBadge.ifPresent(badge -> badges.add(kind, badge));
     }
 
     @Override

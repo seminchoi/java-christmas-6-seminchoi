@@ -1,12 +1,13 @@
 package christmas.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import christmas.model.event.EventKind;
+import java.util.EnumMap;
+import java.util.Map;
 
 public class Badges {
-    private final Set<Badge> badges = new HashSet<>();
+    private final Map<EventKind, Badge> badges = new EnumMap<>(EventKind.class);
 
-    public void add(Badge badge) {
-        badges.add(badge);
+    public void add(EventKind eventKind, Badge badge) {
+        badges.put(eventKind, badge);
     }
 }
