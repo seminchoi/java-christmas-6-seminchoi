@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public record EventPlannerDto(
+        int visitPlanDate,
         Map<String, Integer> clientOrders,
         Map<String, Integer> giftOrders,
         Map<String, Integer> benefits,
@@ -19,6 +20,7 @@ public record EventPlannerDto(
         Map<String, String> badges
 ) {
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
+        int date = eventPlanner.getVisitPlanDate().getDate();
         Map<String, Integer> clientOrders = convertOrders(eventPlanner.getClientOrders());
         Map<String, Integer> giftOrders = convertOrders(eventPlanner.getGiftOrders());
         Map<String, Integer>  benefits = convertBenefitResult(eventPlanner.getBenefitResult());
@@ -26,7 +28,9 @@ public record EventPlannerDto(
         int paymentAmount = eventPlanner.calculatePaymentAmount();
         Map<String, String> badges = convertBadgeResult(eventPlanner.getBadges());
 
-        return new EventPlannerDto(clientOrders, giftOrders, benefits, totalBenefitAmount, paymentAmount, badges);
+        return new EventPlannerDto(
+                date, clientOrders, giftOrders, benefits, totalBenefitAmount, paymentAmount, badges
+        );
     }
 
     private static Map<String, Integer> convertOrders(final Orders orders) {
