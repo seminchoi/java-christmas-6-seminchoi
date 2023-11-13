@@ -10,7 +10,7 @@ import static christmas.model.event.EventKind.WEEKEND_DISCOUNT;
 public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
     private final static EventKind kind = WEEKEND_DISCOUNT;
     private final static MenuCategory TARGET_CATEGORY = MAIN;
-    private final static int COUNT_PER_DISCOUNT_AMOUNT = 2023;
+    private final static int COUNT_PER_DISCOUNT_AMOUNT = -2_023;
 
     public WeekendDiscountEvent() {
         super(COUNT_PER_DISCOUNT_AMOUNT);

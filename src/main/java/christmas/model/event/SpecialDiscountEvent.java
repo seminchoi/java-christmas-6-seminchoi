@@ -8,7 +8,7 @@ import christmas.model.calendar.DecemberDate;
 
 public class SpecialDiscountEvent implements Event {
     private final static EventKind kind = SPECIAL_DISCOUNT;
-    private final static int DISCOUNT_AMOUNT = 1000;
+    private final static int DISCOUNT_AMOUNT = -1_000;
 
     @Override
     public void apply(final EventPlanner eventPlanner) {

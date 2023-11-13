@@ -18,7 +18,7 @@ public class EventPlanner {
 
     public void addGiftOrder(final EventKind eventKind, final Menu menu, final int count) {
         giftOrders.addOrder(menu, count);
-        benefitResult.addResult(eventKind, menu.getPrice() * count);
+        benefitResult.addResult(eventKind, (-1) * menu.getPrice() * count);
     }
 
     public void addBenefitResult(final EventKind eventKind, final int discountAmount) {
@@ -35,7 +35,7 @@ public class EventPlanner {
 
     public int getFinalAmount() {
         int totalAmount = clientOrders.sumTotalAmount() + giftOrders.sumTotalAmount();
-        return totalAmount - getTotalBenefitAmount();
+        return totalAmount + getTotalBenefitAmount();
     }
 
     public DecemberDate getVisitPlanDate() {
