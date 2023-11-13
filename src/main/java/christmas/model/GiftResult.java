@@ -19,4 +19,12 @@ public class GiftResult {
         }
         return totalGiftMenusPrice;
     }
+
+    public GiftOrders getOrders() {
+        final GiftOrders giftOrders = new GiftOrders();
+        for (GiftOrders orders : result.values()) {
+            giftOrders.merge(orders);
+        }
+        return giftOrders;
+    }
 }
