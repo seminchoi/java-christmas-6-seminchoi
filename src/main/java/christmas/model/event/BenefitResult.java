@@ -7,8 +7,14 @@ import java.util.Map;
 public class BenefitResult {
     private final Map<EventKind, Integer> result = new EnumMap<>(EventKind.class);
 
-    public void addResult(EventKind eventKind, int discountAmount) {
-        result.put(eventKind, discountAmount);
+    public void addResult(final EventKind eventKind, final int discountAmount) {
+        if(isDiscounted(discountAmount)) {
+            result.put(eventKind, discountAmount);
+        }
+    }
+
+    private boolean isDiscounted(final int discountAmount) {
+        return discountAmount != 0;
     }
 
     public int sumTotalBenefitAmount() {
