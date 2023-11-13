@@ -16,7 +16,7 @@ public record EventPlannerDto(
         Map<String, Integer> giftOrders,
         Map<String, Integer> benefits,
         int totalBenefitAmount,
-        int paymentAmount,
+        int finalAmount,
         Map<String, String> badges
 ) {
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
@@ -24,8 +24,8 @@ public record EventPlannerDto(
         Map<String, Integer> clientOrders = convertOrders(eventPlanner.getClientOrders());
         Map<String, Integer> giftOrders = convertOrders(eventPlanner.getGiftOrders());
         Map<String, Integer>  benefits = convertBenefitResult(eventPlanner.getBenefitResult());
-        int totalBenefitAmount = eventPlanner.sumTotalBenefitAmount();
-        int paymentAmount = eventPlanner.calculatePaymentAmount();
+        int totalBenefitAmount = eventPlanner.getTotalBenefitAmount();
+        int paymentAmount = eventPlanner.getFinalAmount();
         Map<String, String> badges = convertBadgeResult(eventPlanner.getBadges());
 
         return new EventPlannerDto(
