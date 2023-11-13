@@ -7,7 +7,7 @@ public class ClientOrders extends Orders {
 
     public void validate() {
         int totalCount = 0;
-        for (Integer count : super.orderMenus.values()) {
+        for (Integer count : super.orders.values()) {
             totalCount += count;
         }
     }
