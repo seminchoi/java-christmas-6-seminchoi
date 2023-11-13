@@ -1,15 +1,14 @@
 package christmas.model;
 
 import christmas.model.calendar.DecemberDate;
-import christmas.model.event.DiscountResult;
+import christmas.model.event.BenefitResult;
 import christmas.model.event.EventKind;
-import java.util.Map;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;
     private final ClientOrders clientOrders;
-    private final GiftResult giftResult = new GiftResult();
-    private final DiscountResult discountResult = new DiscountResult();
+    private final GiftOrders giftOrders = new GiftOrders();
+    private final BenefitResult benefitResult = new BenefitResult();
     private final Badges badges = new Badges();
 
     public EventPlanner(DecemberDate visitPlanDate, ClientOrders clientOrders) {
@@ -18,13 +17,17 @@ public class EventPlanner {
     }
 
     public void addGiftOrder(final EventKind eventKind, final Menu menu, final int count) {
-        giftResult.addGiftOrder(eventKind, menu, count);
+        giftOrders.addOrder(menu, count);
+        benefitResult.addResult(eventKind, menu.getPrice() * count);
     }
 
-    public void addDiscountResult(final EventKind eventKind, final int discountAmount) {
-        discountResult.addResult(eventKind, discountAmount);
+    public void addBenefitResult(final EventKind eventKind, final int discountAmount) {
+        benefitResult.addResult(eventKind, discountAmount);
     }
 
+    public int sumTotalBenefitAmount() {
+        return benefitResult.sumTotalBenefitAmount();
+    }
 
     public DecemberDate getVisitPlanDate() {
         return visitPlanDate;
@@ -35,21 +38,14 @@ public class EventPlanner {
     }
 
     public GiftOrders getGiftOrders() {
-        return giftResult.getOrders();
+        return giftOrders;
     }
 
-    public Map<EventKind, Integer> getDiscountResult() {
-        return discountResult.getResult();
+    public BenefitResult getBenefitResult() {
+        return benefitResult;
     }
 
     public Badges getBadges() {
         return badges;
-    }
-
-    public int sumTotalBenefitAmount() {
-        int totalBenefitAmount = 0;
-        totalBenefitAmount += discountResult.sumTotalDiscountAmount();
-        totalBenefitAmount += giftResult.sumTotalAmount();
-        return totalBenefitAmount;
     }
 }

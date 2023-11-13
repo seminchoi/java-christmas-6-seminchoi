@@ -18,7 +18,7 @@ public abstract class AbstractTargetDiscountEvent implements Event {
         if(isEventActive(visitPlanDate)) {
             ClientOrders clientOrders = eventPlanner.getClientOrders();
             int discountAmount = calculateDiscountAmount(clientOrders);
-            eventPlanner.addDiscountResult(getKind(), discountAmount);
+            eventPlanner.addBenefitResult(getKind(), discountAmount);
         }
     }
 
