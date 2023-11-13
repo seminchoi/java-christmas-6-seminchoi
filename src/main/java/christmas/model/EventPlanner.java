@@ -25,6 +25,10 @@ public class EventPlanner {
         benefitResult.addResult(eventKind, discountAmount);
     }
 
+    public int getTotalAmountBeforeDiscount() {
+        return clientOrders.sumTotalAmount();
+    }
+
     public int getTotalBenefitAmount() {
         return benefitResult.sumTotalBenefitAmount();
     }
