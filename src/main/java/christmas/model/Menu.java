@@ -1,12 +1,14 @@
 package christmas.model;
 
+import christmas.message.ErrorMessage;
+
 import static christmas.model.MenuCategory.APPETIZER;
 import static christmas.model.MenuCategory.MAIN;
 import static christmas.model.MenuCategory.DESSERT;
 import static christmas.model.MenuCategory.BEVERAGE;
 
-import java.util.EnumMap;
-import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -28,13 +30,8 @@ public enum Menu {
     CHAMPAGNE("샴페인", BEVERAGE, 25_000),
     ;
 
-    private static final EnumMap<MenuCategory, List<Menu>> MENUS_BY_CATEGORY
-            = Stream.of(values())
-            .collect(Collectors.groupingBy(
-                    Menu::getCategory,
-                    () -> new EnumMap<>(MenuCategory.class),
-                    Collectors.toList()
-            ));
+    private static final Map<String, Menu> nameToMenu = Stream.of(values())
+            .collect(Collectors.toUnmodifiableMap(Menu::getName, Function.identity()));
 
     private final String name;
     private final MenuCategory category;
@@ -46,8 +43,11 @@ public enum Menu {
         this.price = price;
     }
 
-    public static List<Menu> getMenusByCategory(MenuCategory category) {
-        return MENUS_BY_CATEGORY.get(category);
+    public static Menu getMenuByName(String name) {
+        if (nameToMenu.containsKey(name)) {
+            return nameToMenu.get(name);
+        }
+        throw new IllegalArgumentException(ErrorMessage.INVALID_ORDERS.getMessage());
     }
 
     public String getName() {
