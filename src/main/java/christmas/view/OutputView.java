@@ -1,11 +1,13 @@
 package christmas.view;
 
-import static christmas.message.MessageFormat.*;
+import static christmas.message.OutputMessage.*;
 import static christmas.message.TitleMessage.*;
 
 import christmas.dto.EventPlannerDto;
 import christmas.message.MessageBuilder;
+import christmas.message.OutputMessage;
 import christmas.message.TitleMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -47,11 +49,7 @@ public class OutputView {
         return (messageBuilder) -> {
             messageBuilder.append(CLIENT_ORDER_MENU_TITLE.getMessage());
 
-            Map<String, Integer> clientOrders = eventPlannerDto.clientOrders();
-            for (String menu : clientOrders.keySet()) {
-                String menuDetail = String.format(ORDER_FORMAT.getMessage(), menu, clientOrders.get(menu));
-                messageBuilder.append(menuDetail);
-            }
+            appendMessageByDetails(messageBuilder, eventPlannerDto.clientOrders(), ORDER_FORMAT);
         };
     }
 
@@ -68,11 +66,7 @@ public class OutputView {
         return (messageBuilder) -> {
             messageBuilder.append(GIFT_ORDERS_TITLE.getMessage());
 
-            Map<String, Integer> giftOrders = eventPlannerDto.giftOrders();
-            for (String menu : giftOrders.keySet()) {
-                String order = String.format(ORDER_FORMAT.getMessage(), menu, giftOrders.get(menu));
-                messageBuilder.append(order);
-            }
+            appendMessageByDetails(messageBuilder, eventPlannerDto.giftOrders(), ORDER_FORMAT);
         };
     }
 
@@ -80,21 +74,42 @@ public class OutputView {
         return (messageBuilder) -> {
             messageBuilder.append(BENEFITS_TITLE.getMessage());
 
-            Map<String, Integer> benefits = eventPlannerDto.benefits();
-            for (String event : benefits.keySet()) {
-                String benefitDetail = String.format(BENEFIT_FORMAT.getMessage(), event, benefits.get(event));
-                messageBuilder.append(benefitDetail);
-            }
+            appendMessageByDetails(messageBuilder, eventPlannerDto.benefits(), BENEFIT_FORMAT);
         };
+    }
+
+    private void appendMessageByDetails(
+            MessageBuilder builder, Map<String, Integer> details, OutputMessage message
+    ) {
+        if (details.isEmpty()) {
+            builder.append(NOTHING.getMessage());
+            return;
+        }
+
+        for (String key : details.keySet()) {
+            String detail = String.format(message.getMessage(), key, details.get(key));
+            builder.append(detail);
+        }
     }
 
     private Consumer<MessageBuilder> createBenefitAmountConsumer(final EventPlannerDto eventPlannerDto) {
         return (messageBuilder) -> {
             messageBuilder.append(BENEFIT_AMOUNT_TITLE.getMessage());
 
-            String amount = String.format(AMOUNT_FORMAT.getMessage(), eventPlannerDto.benefitAmount());
+            String amount = getAmountMessage(eventPlannerDto.benefitAmount());
             messageBuilder.append(amount);
         };
+    }
+
+    private String getAmountMessage(int amount) {
+        if(isAmountZero(amount)) {
+            return NOTHING.getMessage();
+        }
+        return String.format(AMOUNT_FORMAT.getMessage(), amount);
+    }
+
+    private boolean isAmountZero(int amount) {
+        return amount == 0;
     }
 
     private Consumer<MessageBuilder> createFinalAmountConsumer(final EventPlannerDto eventPlannerDto) {
