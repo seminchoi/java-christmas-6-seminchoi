@@ -33,7 +33,7 @@ public abstract class AbstractTargetDiscountEvent implements Event {
     private int sumTargetMenuCount(final ClientOrders orderMenu) {
         int targetMenusCount = 0;
 
-        for (Menu menu : orderMenu) {
+        for (Menu menu : orderMenu.getOrders().keySet()) {
             if(isTarget(menu)) {
                 targetMenusCount += orderMenu.getCountByMenu(menu);
             }

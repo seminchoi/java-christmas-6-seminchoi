@@ -6,7 +6,7 @@ import christmas.model.event.DiscountResult;
 public class EventPlanner {
     private final DecemberDate visitPlanDate;
     private final ClientOrders clientOrders;
-    private final GiftOrders giftOrders = new GiftOrders();
+    private final GiftResult giftResult = new GiftResult();
     private final DiscountResult discountResult = new DiscountResult();
     private final Badges badges = new Badges();
 
@@ -23,8 +23,8 @@ public class EventPlanner {
         return clientOrders;
     }
 
-    public GiftOrders getGiftOrders() {
-        return giftOrders;
+    public GiftResult getGiftOrders() {
+        return giftResult;
     }
 
     public DiscountResult getDiscountResult() {
@@ -38,7 +38,7 @@ public class EventPlanner {
     public int sumTotalBenefitAmount() {
         int totalBenefitAmount = 0;
         totalBenefitAmount += discountResult.sumTotalDiscountAmount();
-        totalBenefitAmount += giftOrders.sumTotalAmount();
+        totalBenefitAmount += giftResult.sumTotalAmount();
         return totalBenefitAmount;
     }
 }

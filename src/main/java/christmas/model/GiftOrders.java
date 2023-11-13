@@ -1,12 +1,8 @@
 package christmas.model;
 
 public class GiftOrders extends Orders {
-    public int sumTotalGiftMenusPrice() {
-        int totalGiftMenusPrice = 0;
-        for (Menu menu : orders.keySet()) {
-            final int giftCount = orders.get(menu);
-            totalGiftMenusPrice += menu.getPrice() * giftCount;
-        }
-        return totalGiftMenusPrice;
+    public void addOrder(final Menu menu, final int count) {
+        int currentCount = orders.getOrDefault(menu, 0);
+        orders.put(menu, currentCount + count);
     }
 }

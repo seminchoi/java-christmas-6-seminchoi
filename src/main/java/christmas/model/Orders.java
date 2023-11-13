@@ -2,21 +2,10 @@ package christmas.model;
 
 import java.util.Collections;
 import java.util.EnumMap;
-import java.util.Iterator;
 import java.util.Map;
 
-public abstract class Orders implements Iterable<Menu> {
-
+public abstract class Orders {
     protected final Map<Menu, Integer> orders = new EnumMap<>(Menu.class);
-
-    @Override
-    public Iterator<Menu> iterator() {
-        return orders.keySet().stream().iterator();
-    }
-
-    public void addOrder(final Menu menu, final int count) {
-        orders.put(menu, count);
-    }
 
     public int getCountByMenu(final Menu menu) {
         if (orders.containsKey(menu)) {
