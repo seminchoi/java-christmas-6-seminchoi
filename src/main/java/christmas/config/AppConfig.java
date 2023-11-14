@@ -6,7 +6,7 @@ import christmas.model.event.applicable.ChristmasDiscountEvent;
 import christmas.model.event.applicable.DecemberBadgeEvent;
 import christmas.model.event.EventManager;
 import christmas.model.event.applicable.SpecialDiscountEvent;
-import christmas.model.event.applicable.WeekDayDiscountEvent;
+import christmas.model.event.applicable.WeekdayDiscountEvent;
 import christmas.model.event.applicable.WeekendDiscountEvent;
 import christmas.view.InputView;
 import christmas.view.OutputView;
@@ -19,7 +19,7 @@ public class AppConfig {
     public EventManager eventManager() {
         return new EventManager()
                 .addEvent(new ChristmasDiscountEvent())
-                .addEvent(new WeekDayDiscountEvent())
+                .addEvent(new WeekdayDiscountEvent())
                 .addEvent(new WeekendDiscountEvent())
                 .addEvent(new SpecialDiscountEvent())
                 .addEvent(new DecemberBadgeEvent())

@@ -4,7 +4,7 @@ import static christmas.model.event.EventCategory.*;
 
 public enum EventKind {
     CHRISTMAS_DISCOUNT(DISCOUNT, "크리스마스 디데이 할인"),
-    WEEK_DAY_DISCOUNT(DISCOUNT, "평일 할인"),
+    WEEKDAY_DISCOUNT(DISCOUNT, "평일 할인"),
     WEEKEND_DISCOUNT(DISCOUNT, "주말 할인"),
     SPECIAL_DISCOUNT(DISCOUNT, "특별 할인"),
 
