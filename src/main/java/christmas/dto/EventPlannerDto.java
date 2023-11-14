@@ -10,8 +10,8 @@ import christmas.model.planner.EventPlanner;
 public class EventPlannerDto {
     private final VisitPlanDateDto visitPlanDateDto;
     private final OrdersAmountDto ordersAmountDto;
-    private final OrdersDto clientOrders;
-    private final OrdersDto giftOrders;
+    private final ClientOrdersDto clientOrders;
+    private final GiftOrdersDto giftOrders;
     private final BenefitsDto benefits;
     private final BenefitsAmountDto benefitsAmount;
     private final PaymentAmountDto paymentAmount;
@@ -44,8 +44,8 @@ public class EventPlannerDto {
     public static class Builder {
         private VisitPlanDateDto visitPlanDate;
         private OrdersAmountDto ordersAmount;
-        private OrdersDto clientOrders;
-        private OrdersDto giftOrders;
+        private ClientOrdersDto clientOrders;
+        private GiftOrdersDto giftOrders;
         private BenefitsDto benefits;
         private BenefitsAmountDto benefitsAmount;
         private PaymentAmountDto paymentAmount;
@@ -62,12 +62,12 @@ public class EventPlannerDto {
         }
 
         public Builder clientOrders(final ClientOrders clientOrders) {
-            this.clientOrders = OrdersDto.of(clientOrders);
+            this.clientOrders = ClientOrdersDto.of(clientOrders);
             return this;
         }
 
         public Builder giftOrders(final GiftOrders giftOrders) {
-            this.giftOrders = OrdersDto.of(giftOrders);
+            this.giftOrders = GiftOrdersDto.of(giftOrders);
             return this;
         }
 
