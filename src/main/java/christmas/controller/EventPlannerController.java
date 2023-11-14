@@ -21,23 +21,23 @@ public class EventPlannerController {
     }
 
     public void run() {
-        EventPlanner eventPlanner = createEventPlanner();
+        final EventPlanner eventPlanner = createEventPlanner();
         eventManager.applyEvents(eventPlanner);
 
-        EventPlannerDto eventPlannerDto = EventPlannerDto.of(eventPlanner);
+        final EventPlannerDto eventPlannerDto = EventPlannerDto.of(eventPlanner);
         outputView.printEventPlanner(eventPlannerDto);
     }
 
     private EventPlanner createEventPlanner() {
-        DecemberDate decemberDate = createDecemberDate();
-        ClientOrders clientOrders = createClientOrders();
+        final DecemberDate decemberDate = createDecemberDate();
+        final ClientOrders clientOrders = createClientOrders();
         return new EventPlanner(decemberDate, clientOrders);
     }
 
     private DecemberDate createDecemberDate() {
         while (true) {
             try {
-                int date = inputView.readDate();
+                final int date = inputView.readDate();
                 return new DecemberDate(date);
             } catch (IllegalArgumentException causedClient) {
                 outputView.printErrorMessage(causedClient);
@@ -48,7 +48,7 @@ public class EventPlannerController {
     private ClientOrders createClientOrders() {
         while (true) {
             try {
-                Map<String, Integer> clientOrders = inputView.readOrders();
+                final Map<String, Integer> clientOrders = inputView.readOrders();
                 return new ClientOrders(clientOrders);
             } catch (IllegalArgumentException causedClient) {
                 outputView.printErrorMessage(causedClient);

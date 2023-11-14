@@ -15,7 +15,6 @@ public class SpecialDiscountEventTest {
     private final static int DISCOUNT_AMOUNT = -1_000;
     private final SpecialDiscountEvent specialDiscountEvent = new SpecialDiscountEvent();
 
-
     @DisplayName("일요일이나 크리스마스에는 특별 할인 1,000원이 적용된다.")
     @ParameterizedTest
     @ValueSource(ints = {3, 10, 17, 24, 31, 25})
@@ -33,12 +32,11 @@ public class SpecialDiscountEventTest {
     void given_ordersAtNormalDay_when_apply_then_notAppliedDiscount(final int date) {
         final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(date, createOrders());
 
-        final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefitResult(specialDiscountEvent, eventPlanner);
+        final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefits(specialDiscountEvent, eventPlanner);
         final boolean isEventApplied = result.containsKey(specialDiscountEvent.getKind());
 
-        assertThat(isEventApplied).isEqualTo(false);
+        assertThat(isEventApplied).isFalse();
     }
-
 
     private Map<String, Integer> createOrders() {
         final Map<String, Integer> orders = new HashMap<>();

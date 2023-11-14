@@ -13,9 +13,9 @@ public class SpecialDiscountEvent implements Event {
 
     @Override
     public void apply(final EventPlanner eventPlanner) {
-        DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
+        final DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
         if(isEventActive(visitPlanDate)) {
-            int discountAmount = calculateDiscountAmount();
+            final int discountAmount = calculateDiscountAmount();
 
             eventPlanner.addBenefit(getKind(), discountAmount);
         }
@@ -25,7 +25,7 @@ public class SpecialDiscountEvent implements Event {
         return DISCOUNT_AMOUNT;
     }
 
-    private boolean isEventActive(DecemberDate visitPlanDate) {
+    private boolean isEventActive(final DecemberDate visitPlanDate) {
         return visitPlanDate.getDay() == SUNDAY || visitPlanDate.isChristmas();
     }
 

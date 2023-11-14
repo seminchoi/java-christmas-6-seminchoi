@@ -2,7 +2,8 @@ package christmas.view;
 
 import static christmas.message.ErrorMessage.INVALID_DATE;
 import static christmas.message.ErrorMessage.INVALID_ORDERS;
-import static christmas.message.InputMessage.*;
+import static christmas.message.InputMessage.VISIT_PLAN_DATE;
+import static christmas.message.InputMessage.ORDERS;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.message.ErrorMessage;
@@ -39,9 +40,9 @@ public class InputView {
 
     private void addOrder(final Map<String, Integer> orders, final Iterator<String> iterator) {
         try {
-            String menu = iterator.next().trim();
+            final String menu = iterator.next().trim();
             validateMenu(orders, menu);
-            int amount = parseIntOrThrow(iterator.next(), INVALID_ORDERS);
+            final int amount = parseIntOrThrow(iterator.next(), INVALID_ORDERS);
             orders.put(menu, amount);
         } catch (NoSuchElementException e) {
             throw new IllegalArgumentException(INVALID_ORDERS.getMessage());

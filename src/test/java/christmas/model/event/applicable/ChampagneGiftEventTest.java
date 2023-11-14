@@ -47,7 +47,7 @@ public class ChampagneGiftEventTest {
         final Map<Menu, Integer> giftOrders = EventUtil.applyAndGetGiftOrders(champagneGiftEvent, eventPlanner);
         final boolean isEventApplied = giftOrders.containsKey(GIFT_MENU);
 
-        assertThat(isEventApplied).isEqualTo(false);
+        assertThat(isEventApplied).isFalse();
     }
 
     private Map<String, Integer> createOrdersUnderConditionAmount() {

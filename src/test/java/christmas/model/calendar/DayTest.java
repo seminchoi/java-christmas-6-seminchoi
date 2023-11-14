@@ -1,7 +1,13 @@
 package christmas.model.calendar;
 
-import static christmas.model.calendar.Day.*;
-import static org.assertj.core.api.Assertions.*;
+import static christmas.model.calendar.Day.SUNDAY;
+import static christmas.model.calendar.Day.MONDAY;
+import static christmas.model.calendar.Day.TUESDAY;
+import static christmas.model.calendar.Day.WEDNESDAY;
+import static christmas.model.calendar.Day.THURSDAY;
+import static christmas.model.calendar.Day.FRIDAY;
+import static christmas.model.calendar.Day.SATURDAY;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +22,7 @@ class DayTest {
         final DayOfWeek[] dayOfWeeks = DayOfWeek.values();
 
         for (final DayOfWeek dayOfWeek : dayOfWeeks) {
-            of(dayOfWeek);
+            Day.of(dayOfWeek);
         }
     }
 
@@ -27,7 +33,7 @@ class DayTest {
 
         for (final Day day : days) {
             final boolean isWeekDay = day.isWeekday();
-            assertThat(isWeekDay).isEqualTo(true);
+            assertThat(isWeekDay).isTrue();
         }
     }
 
@@ -38,7 +44,7 @@ class DayTest {
 
         for (final Day day : days) {
             final boolean isWeekDay = day.isWeekday();
-            assertThat(isWeekDay).isEqualTo(false);
+            assertThat(isWeekDay).isFalse();
         }
     }
 }

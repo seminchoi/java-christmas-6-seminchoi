@@ -38,8 +38,8 @@ public class ChristmasDiscountEventTest {
     void given_26thDate_when_apply_then_discountAmount() {
         final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(26, createOrders());
 
-        final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefitResult(event, eventPlanner);
-        boolean isEventApplied = result.containsKey(event.getKind());
+        final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefits(event, eventPlanner);
+        final boolean isEventApplied = result.containsKey(event.getKind());
 
         assertThat(isEventApplied).isEqualTo(false);
     }

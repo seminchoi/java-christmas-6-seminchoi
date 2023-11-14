@@ -23,9 +23,9 @@ class OrdersTest {
     @DisplayName("주문에 여러 개의 메뉴를 추가했을 때 특정 메뉴의 개수를 반환한다.")
     @Test
     void given_variousOrders_when_getCountBySpecificMenu_then_menuCount() {
-        SimpleOrders simpleOrders = createDefaultSimpleOrders();
+        final SimpleOrders simpleOrders = createDefaultSimpleOrders();
 
-        int count = simpleOrders.getCountByMenu(YANGSONG_SOUP);
+        final int count = simpleOrders.getCountByMenu(YANGSONG_SOUP);
 
         assertThat(count).isEqualTo(10);
     }
@@ -33,9 +33,9 @@ class OrdersTest {
     @DisplayName("주문의 가격을 계산한다.")
     @Test
     void given_orders_when_sumTotalAmount_then_totalAmount() {
-        SimpleOrders simpleOrders = createDefaultSimpleOrders();
+        final SimpleOrders simpleOrders = createDefaultSimpleOrders();
 
-        int totalAmount = simpleOrders.sumTotalAmount();
+        final int totalAmount = simpleOrders.sumTotalAmount();
 
         assertThat(totalAmount).isEqualTo(360_000);
     }
@@ -43,17 +43,16 @@ class OrdersTest {
     @DisplayName("콜렉션 필드는 unmodifiable 콜렉션이다.")
     @Test
     void when_getOrders_then_unmodifiableCollection() {
-        SimpleOrders simpleOrders = createDefaultSimpleOrders();
+        final SimpleOrders simpleOrders = createDefaultSimpleOrders();
 
-        Map<Menu, Integer> orders = simpleOrders.getOrders();
+        final Map<Menu, Integer> orders = simpleOrders.getOrders();
 
         assertThatThrownBy(() -> orders.put(TAPAS, 10))
                 .isInstanceOf(UnsupportedOperationException.class);
     }
 
     private SimpleOrders createDefaultSimpleOrders() {
-        Map<Menu, Integer> orders = new EnumMap<>(Menu.class);
-
+        final Map<Menu, Integer> orders = new EnumMap<>(Menu.class);
         orders.put(YANGSONG_SOUP, 10);
         orders.put(CHRISTMAS_PASTA, 8);
         orders.put(CHAMPAGNE, 4);

@@ -13,7 +13,7 @@ public record BenefitsDto(Map<String, Integer> benefits) {
     public static BenefitsDto of(final Benefits benefits) {
         final Map<EventKind, Integer> eventToAmount = benefits.getResult();
 
-        Map<String, Integer> convertedBenefits = eventToAmount.entrySet()
+        final Map<String, Integer> convertedBenefits = eventToAmount.entrySet()
                 .stream()
                 .collect(
                         LinkedHashMap::new,

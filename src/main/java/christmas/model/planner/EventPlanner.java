@@ -18,7 +18,7 @@ public class EventPlanner {
 
     private Badge badge = NOTHING;
 
-    public EventPlanner(DecemberDate visitPlanDate, ClientOrders clientOrders) {
+    public EventPlanner(final DecemberDate visitPlanDate, final ClientOrders clientOrders) {
         this.visitPlanDate = visitPlanDate;
         this.clientOrders = clientOrders;
     }
@@ -49,7 +49,7 @@ public class EventPlanner {
     }
 
     public int getPaymentAmount() {
-        int totalAmount = clientOrders.sumTotalAmount() + giftOrders.sumTotalAmount();
+        final int totalAmount = clientOrders.sumTotalAmount() + giftOrders.sumTotalAmount();
         return totalAmount + getBenefitsAmount();
     }
 

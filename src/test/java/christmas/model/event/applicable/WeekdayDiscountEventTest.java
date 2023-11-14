@@ -31,10 +31,10 @@ public class WeekdayDiscountEventTest {
     void given_ordersAtWeekend_when_apply_then_notAppliedDiscount() {
         final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(2, createOrders());
 
-        final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefitResult(weekdayDiscountEvent, eventPlanner);
+        final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefits(weekdayDiscountEvent, eventPlanner);
         final boolean isEventApplied = result.containsKey(weekdayDiscountEvent.getKind());
 
-        assertThat(isEventApplied).isEqualTo(false);
+        assertThat(isEventApplied).isFalse();
     }
 
     private Map<String, Integer> createOrders() {

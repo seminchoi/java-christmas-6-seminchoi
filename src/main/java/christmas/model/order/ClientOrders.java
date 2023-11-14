@@ -14,8 +14,8 @@ public class ClientOrders extends Orders {
     public ClientOrders(final Map<String, Integer> orderMenus) {
         validate(orderMenus);
         for (String menuName : orderMenus.keySet()) {
-            Menu menu = Menu.getMenuByName(menuName);
-            int count = orderMenus.get(menuName);
+            final Menu menu = Menu.getMenuByName(menuName);
+            final int count = orderMenus.get(menuName);
             orders.put(menu, count);
         }
     }
@@ -26,7 +26,7 @@ public class ClientOrders extends Orders {
     }
 
     private void validateTotalCount(final Map<String, Integer> orderMenus) {
-        int totalCount = sumTotalCount(orderMenus);
+        final int totalCount = sumTotalCount(orderMenus);
         if (isOutOfRangeTotalCount(totalCount)) {
             throw new IllegalArgumentException(INVALID_ORDERS.getMessage());
         }
@@ -53,7 +53,7 @@ public class ClientOrders extends Orders {
 
     private boolean isInvalidMenus(final Map<String, Integer> orderMenus) {
         for (String menuName : orderMenus.keySet()) {
-            Menu menu = Menu.getMenuByName(menuName);
+            final Menu menu = Menu.getMenuByName(menuName);
             if(canOrderIndividually(menu)) {
                 return false;
             }

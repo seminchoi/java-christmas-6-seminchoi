@@ -14,7 +14,7 @@ public enum Day {
 
     private final boolean weekdayFlag;
 
-    Day(boolean weekdayFlag) {
+    Day(final boolean weekdayFlag) {
         this.weekdayFlag = weekdayFlag;
     }
 

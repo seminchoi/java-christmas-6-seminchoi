@@ -1,6 +1,8 @@
 package christmas.model.event;
 
-import static christmas.model.event.EventCategory.*;
+import static christmas.model.event.EventCategory.DISCOUNT;
+import static christmas.model.event.EventCategory.GIFT;
+import static christmas.model.event.EventCategory.BADGE;
 
 public enum EventKind {
     CHRISTMAS_DISCOUNT(DISCOUNT, "크리스마스 디데이 할인"),

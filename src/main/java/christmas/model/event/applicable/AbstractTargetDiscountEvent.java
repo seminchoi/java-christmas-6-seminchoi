@@ -14,7 +14,7 @@ public abstract class AbstractTargetDiscountEvent implements Event {
 
     @Override
     public void apply(final EventPlanner eventPlanner) {
-        DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
+        final DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
         if(isEventActive(visitPlanDate)) {
             ClientOrders clientOrders = eventPlanner.getClientOrders();
             int discountAmount = calculateDiscountAmount(clientOrders);

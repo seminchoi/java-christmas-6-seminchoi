@@ -17,7 +17,7 @@ public abstract class Orders {
 
     public int sumTotalAmount() {
         int totalAmount = 0;
-        for (Menu menu : orders.keySet()) {
+        for (final Menu menu : orders.keySet()) {
             totalAmount += calculateMenuAmount(menu);
         }
         return totalAmount;

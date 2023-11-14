@@ -23,10 +23,10 @@ public class EventManagerTest {
     @DisplayName("주문 금액이 10,000원 미만이면 이벤트를 적용하지 않는다.")
     @Test
     void given_orderAmountUnderCondition_when_applyEvents_then_isNotApply() {
-        EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(1, createOrders());
+        final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(1, createOrders());
         eventManager.applyEvents(eventPlanner);
 
-        final int benefitAmount = eventPlanner.getTotalBenefitAmount();
+        final int benefitAmount = eventPlanner.getBenefitsAmount();
 
         assertThat(benefitAmount).isZero();
     }

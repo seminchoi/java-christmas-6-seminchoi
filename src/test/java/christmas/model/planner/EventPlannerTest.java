@@ -40,7 +40,7 @@ public class EventPlannerTest {
         christmasDiscountEvent.apply(eventPlanner);
         champagneGiftEvent.apply(eventPlanner);
 
-        final int finalAmount = eventPlanner.getFinalAmount();
+        final int finalAmount = eventPlanner.getPaymentAmount();
         final int expectFinalAmount = eventPlanner.getOrdersAmount() - 1_000;
 
         assertThat(finalAmount).isEqualTo(expectFinalAmount);

@@ -13,9 +13,9 @@ public class ChristmasDiscountEvent implements Event {
 
     @Override
     public void apply(final EventPlanner eventPlanner) {
-        DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
+        final DecemberDate visitPlanDate = eventPlanner.getVisitPlanDate();
         if (isEventActive(visitPlanDate)) {
-            int discountAmount = calculateDiscountAmount(visitPlanDate.getDate());
+            final int discountAmount = calculateDiscountAmount(visitPlanDate.getDate());
             eventPlanner.addBenefit(getKind(), discountAmount);
         }
     }

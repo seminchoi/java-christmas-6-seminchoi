@@ -18,7 +18,7 @@ class GiftOrdersTest {
         final int count = 1;
 
         giftOrders.addOrder(menu, count);
-        Map<Menu, Integer> orders = giftOrders.getOrders();
+        final Map<Menu, Integer> orders = giftOrders.getOrders();
         final int actualCount = orders.get(menu);
 
         assertThat(actualCount).isEqualTo(1);
