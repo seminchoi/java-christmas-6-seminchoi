@@ -17,7 +17,7 @@ public class WeekendDiscountEvent extends AbstractTargetDiscountEvent {
     }
 
     boolean isEventActive(final DecemberDate visitPlanDate) {
-        return !visitPlanDate.isWeekDay();
+        return !visitPlanDate.isWeekday();
     }
     boolean isTarget(final Menu menu) {
         return menu.getCategory() == TARGET_CATEGORY;

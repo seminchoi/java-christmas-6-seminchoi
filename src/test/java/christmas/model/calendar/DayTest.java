@@ -26,7 +26,7 @@ public class DayTest {
         final List<Day> days = List.of(SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY);
 
         for (final Day day : days) {
-            final boolean isWeekDay = day.isWeekDay();
+            final boolean isWeekDay = day.isWeekday();
             assertThat(isWeekDay).isEqualTo(true);
         }
     }
@@ -37,7 +37,7 @@ public class DayTest {
         final List<Day> days = List.of(FRIDAY, SATURDAY);
 
         for (final Day day : days) {
-            final boolean isWeekDay = day.isWeekDay();
+            final boolean isWeekDay = day.isWeekday();
             assertThat(isWeekDay).isEqualTo(false);
         }
     }

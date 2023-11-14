@@ -12,17 +12,17 @@ public enum Day {
     SATURDAY(false),
     ;
 
-    private final boolean weekDayFlag;
+    private final boolean weekdayFlag;
 
-    Day(boolean weekDayFlag) {
-        this.weekDayFlag = weekDayFlag;
+    Day(boolean weekdayFlag) {
+        this.weekdayFlag = weekdayFlag;
     }
 
     public static Day of(DayOfWeek dayOfWeek) {
         return Day.valueOf(dayOfWeek.name());
     }
 
-    public boolean isWeekDay() {
-        return weekDayFlag;
+    public boolean isWeekday() {
+        return weekdayFlag;
     }
 }

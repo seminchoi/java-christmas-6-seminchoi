@@ -37,8 +37,8 @@ public class DecemberDate {
         return date.getDayOfMonth();
     }
 
-    public boolean isWeekDay() {
-        return getDay().isWeekDay();
+    public boolean isWeekday() {
+        return getDay().isWeekday();
     }
 
     public boolean isChristmas() {
