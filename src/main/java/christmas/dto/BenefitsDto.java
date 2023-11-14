@@ -1,6 +1,8 @@
 package christmas.dto;
 
 import static christmas.message.OutputMessage.BENEFIT_FORMAT;
+import static christmas.message.OutputMessage.NOTHING;
+import static christmas.message.TitleMessage.BENEFITS_TITLE;
 
 import christmas.model.event.EventKind;
 import christmas.model.event.result.Benefits;
@@ -25,13 +27,23 @@ public record BenefitsDto(Map<String, Integer> benefits) {
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();
+        final String title = BENEFITS_TITLE.getMessage();
+        stringBuilder.append(title);
 
+        if(benefits.isEmpty()) {
+            stringBuilder.append(NOTHING.getMessage());
+            return stringBuilder.toString();
+        }
+        addContent(stringBuilder);
+
+        return stringBuilder.toString();
+    }
+
+    private void addContent(final StringBuilder stringBuilder) {
         for (String event : benefits.keySet()) {
             final int benefitAmount = benefits.get(event);
             stringBuilder.append(makeBenefitDetail(event, benefitAmount));
         }
-
-        return stringBuilder.toString();
     }
 
     private String makeBenefitDetail(final String event, final int benefitAmount) {
