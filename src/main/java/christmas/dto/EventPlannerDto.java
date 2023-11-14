@@ -9,8 +9,8 @@ import java.util.Map;
 public record EventPlannerDto(
         int date,
         int amountBeforeDiscount,
-        Map<String, Integer> clientOrders,
-        Map<String, Integer> giftOrders,
+        OrdersDto clientOrders,
+        OrdersDto giftOrders,
         Map<String, Integer> benefits,
         int benefitAmount,
         int finalAmount,
@@ -19,8 +19,8 @@ public record EventPlannerDto(
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
         int date = eventPlanner.getVisitPlanDate().getDate();
         int amountBeforeDiscount = eventPlanner.getTotalAmountBeforeDiscount();
-        Map<String, Integer> clientOrders = OrdersDto.of(eventPlanner.getClientOrders());
-        Map<String, Integer> giftOrders = OrdersDto.of(eventPlanner.getGiftOrders());
+        OrdersDto clientOrders = OrdersDto.of(eventPlanner.getClientOrders());
+        OrdersDto giftOrders = OrdersDto.of(eventPlanner.getGiftOrders());
         Map<String, Integer>  benefits = convertBenefits(eventPlanner.getBenefits());
         int benefitAmount = eventPlanner.getTotalBenefitAmount();
         int finalAmount = eventPlanner.getFinalAmount();

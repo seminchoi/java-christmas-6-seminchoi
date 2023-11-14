@@ -8,15 +8,18 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public record OrdersDto(Map<String, Integer> orders) {
-    public static Map<String, Integer> of(final Orders orders) {
+    public static OrdersDto of(final Orders orders) {
         final Map<Menu, Integer> menuToCount = orders.getOrders();
-        return menuToCount.entrySet()
+
+        final Map<String, Integer> convertedOrders = menuToCount.entrySet()
                 .stream()
                 .collect(
                         LinkedHashMap::new,
                         (map, entry) -> map.put(entry.getKey().getName(), entry.getValue()),
                         Map::putAll
                 );
+
+        return new OrdersDto(convertedOrders);
     }
 
     @Override
