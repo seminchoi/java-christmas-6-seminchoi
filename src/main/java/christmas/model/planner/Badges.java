@@ -1,5 +1,6 @@
-package christmas.model;
+package christmas.model.planner;
 
+import christmas.model.badge.Badge;
 import christmas.model.event.EventKind;
 import java.util.Collections;
 import java.util.EnumMap;

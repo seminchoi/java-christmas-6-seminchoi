@@ -1,6 +1,6 @@
 package christmas.model.event;
 
-import christmas.model.EventPlanner;
+import christmas.model.planner.EventPlanner;
 
 public interface Event extends Comparable<Event> {
     EventKind getKind();

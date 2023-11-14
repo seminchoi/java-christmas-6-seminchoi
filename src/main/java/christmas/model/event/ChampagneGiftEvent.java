@@ -1,11 +1,11 @@
 package christmas.model.event;
 
-import static christmas.model.Menu.CHAMPAGNE;
+import static christmas.model.menu.Menu.CHAMPAGNE;
 import static christmas.model.event.EventKind.MENU_GIFT;
 
-import christmas.model.ClientOrders;
-import christmas.model.EventPlanner;
-import christmas.model.Menu;
+import christmas.model.planner.ClientOrders;
+import christmas.model.planner.EventPlanner;
+import christmas.model.menu.Menu;
 
 public class ChampagneGiftEvent implements Event {
     private static final EventKind kind = MENU_GIFT;

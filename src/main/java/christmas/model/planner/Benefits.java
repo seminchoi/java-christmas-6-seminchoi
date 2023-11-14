@@ -1,10 +1,12 @@
-package christmas.model.event;
+package christmas.model.planner;
+
+import christmas.model.event.EventKind;
 
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class BenefitResult {
+public class Benefits {
     private final Map<EventKind, Integer> result = new EnumMap<>(EventKind.class);
 
     public void addResult(final EventKind eventKind, final int discountAmount) {

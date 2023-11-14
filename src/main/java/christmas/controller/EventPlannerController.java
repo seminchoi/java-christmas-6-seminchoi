@@ -1,8 +1,8 @@
 package christmas.controller;
 
 import christmas.dto.EventPlannerDto;
-import christmas.model.ClientOrders;
-import christmas.model.EventPlanner;
+import christmas.model.planner.ClientOrders;
+import christmas.model.planner.EventPlanner;
 import christmas.model.calendar.DecemberDate;
 import christmas.model.event.EventManager;
 import christmas.view.InputView;

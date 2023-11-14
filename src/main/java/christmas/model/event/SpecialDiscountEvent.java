@@ -3,7 +3,7 @@ package christmas.model.event;
 import static christmas.model.calendar.Day.SUNDAY;
 import static christmas.model.event.EventKind.SPECIAL_DISCOUNT;
 
-import christmas.model.EventPlanner;
+import christmas.model.planner.EventPlanner;
 import christmas.model.calendar.DecemberDate;
 
 public class SpecialDiscountEvent implements Event {
@@ -16,7 +16,7 @@ public class SpecialDiscountEvent implements Event {
         if(isEventActive(visitPlanDate)) {
             int discountAmount = calculateDiscountAmount();
 
-            eventPlanner.addBenefitResult(getKind(), discountAmount);
+            eventPlanner.addBenefit(getKind(), discountAmount);
         }
     }
 

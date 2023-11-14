@@ -1,11 +1,11 @@
 package christmas.dto;
 
-import christmas.model.Badge;
-import christmas.model.Badges;
-import christmas.model.EventPlanner;
-import christmas.model.Menu;
-import christmas.model.Orders;
-import christmas.model.event.BenefitResult;
+import christmas.model.badge.Badge;
+import christmas.model.planner.Badges;
+import christmas.model.planner.EventPlanner;
+import christmas.model.menu.Menu;
+import christmas.model.planner.Orders;
+import christmas.model.planner.Benefits;
 import christmas.model.event.EventKind;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ public record EventPlannerDto(
         int amountBeforeDiscount = eventPlanner.getTotalAmountBeforeDiscount();
         Map<String, Integer> clientOrders = convertOrders(eventPlanner.getClientOrders());
         Map<String, Integer> giftOrders = convertOrders(eventPlanner.getGiftOrders());
-        Map<String, Integer>  benefits = convertBenefitResult(eventPlanner.getBenefitResult());
+        Map<String, Integer>  benefits = convertBenefits(eventPlanner.getBenefits());
         int benefitAmount = eventPlanner.getTotalBenefitAmount();
         int finalAmount = eventPlanner.getFinalAmount();
         Map<String, String> badges = convertBadgeResult(eventPlanner.getBadges());
@@ -46,8 +46,8 @@ public record EventPlannerDto(
                 );
     }
 
-    private static Map<String, Integer> convertBenefitResult(final BenefitResult benefitResult) {
-        final Map<EventKind, Integer> eventToAmount = benefitResult.getResult();
+    private static Map<String, Integer> convertBenefits(final Benefits benefits) {
+        final Map<EventKind, Integer> eventToAmount = benefits.getResult();
 
         return eventToAmount.entrySet()
                 .stream()

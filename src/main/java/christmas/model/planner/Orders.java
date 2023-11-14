@@ -1,4 +1,6 @@
-package christmas.model;
+package christmas.model.planner;
+
+import christmas.model.menu.Menu;
 
 import java.util.Collections;
 import java.util.EnumMap;

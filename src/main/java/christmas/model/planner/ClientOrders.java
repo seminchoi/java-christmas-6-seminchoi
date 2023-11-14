@@ -1,4 +1,7 @@
-package christmas.model;
+package christmas.model.planner;
+
+import christmas.model.menu.Menu;
+import christmas.model.menu.MenuCategory;
 
 import static christmas.message.ErrorMessage.INVALID_ORDERS;
 

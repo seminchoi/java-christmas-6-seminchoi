@@ -1,14 +1,15 @@
-package christmas.model;
+package christmas.model.planner;
 
+import christmas.model.badge.Badge;
 import christmas.model.calendar.DecemberDate;
-import christmas.model.event.BenefitResult;
+import christmas.model.menu.Menu;
 import christmas.model.event.EventKind;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;
     private final ClientOrders clientOrders;
     private final GiftOrders giftOrders = new GiftOrders();
-    private final BenefitResult benefitResult = new BenefitResult();
+    private final Benefits benefits = new Benefits();
     private final Badges badges = new Badges();
 
     public EventPlanner(DecemberDate visitPlanDate, ClientOrders clientOrders) {
@@ -18,11 +19,11 @@ public class EventPlanner {
 
     public void addGiftOrder(final EventKind eventKind, final Menu menu, final int count) {
         giftOrders.addOrder(menu, count);
-        benefitResult.addResult(eventKind, (-1) * menu.getPrice() * count);
+        benefits.addResult(eventKind, (-1) * menu.getPrice() * count);
     }
 
-    public void addBenefitResult(final EventKind eventKind, final int discountAmount) {
-        benefitResult.addResult(eventKind, discountAmount);
+    public void addBenefit(final EventKind eventKind, final int discountAmount) {
+        benefits.addResult(eventKind, discountAmount);
     }
 
     public void addBadge(final EventKind eventKind, final Badge badge) {
@@ -34,7 +35,7 @@ public class EventPlanner {
     }
 
     public int getTotalBenefitAmount() {
-        return benefitResult.sumTotalBenefitAmount();
+        return benefits.sumTotalBenefitAmount();
     }
 
     public int getFinalAmount() {
@@ -54,8 +55,8 @@ public class EventPlanner {
         return giftOrders;
     }
 
-    public BenefitResult getBenefitResult() {
-        return benefitResult;
+    public Benefits getBenefits() {
+        return benefits;
     }
 
     public Badges getBadges() {

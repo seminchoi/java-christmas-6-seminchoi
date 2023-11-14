@@ -1,4 +1,6 @@
-package christmas.model;
+package christmas.model.planner;
+
+import christmas.model.menu.Menu;
 
 public class GiftOrders extends Orders {
     public void addOrder(final Menu menu, final int count) {

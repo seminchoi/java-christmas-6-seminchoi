@@ -1,8 +1,8 @@
 package christmas.model.event;
 
-import christmas.model.ClientOrders;
-import christmas.model.EventPlanner;
-import christmas.model.Menu;
+import christmas.model.planner.ClientOrders;
+import christmas.model.planner.EventPlanner;
+import christmas.model.menu.Menu;
 import christmas.model.calendar.DecemberDate;
 
 public abstract class AbstractTargetDiscountEvent implements Event {
@@ -18,7 +18,7 @@ public abstract class AbstractTargetDiscountEvent implements Event {
         if(isEventActive(visitPlanDate)) {
             ClientOrders clientOrders = eventPlanner.getClientOrders();
             int discountAmount = calculateDiscountAmount(clientOrders);
-            eventPlanner.addBenefitResult(getKind(), discountAmount);
+            eventPlanner.addBenefit(getKind(), discountAmount);
         }
     }
 

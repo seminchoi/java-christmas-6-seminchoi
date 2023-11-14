@@ -1,10 +1,10 @@
 package christmas.model.event;
 
-import static christmas.model.MenuCategory.DESSERT;
+import static christmas.model.menu.MenuCategory.DESSERT;
 import static christmas.model.event.EventKind.WEEK_DAY_DISCOUNT;
 
-import christmas.model.Menu;
-import christmas.model.MenuCategory;
+import christmas.model.menu.Menu;
+import christmas.model.menu.MenuCategory;
 import christmas.model.calendar.DecemberDate;
 
 public class WeekDayDiscountEvent extends AbstractTargetDiscountEvent {

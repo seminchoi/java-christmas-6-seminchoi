@@ -1,10 +1,10 @@
-package christmas.model;
+package christmas.model.menu;
 
 import static christmas.message.ErrorMessage.INVALID_ORDERS;
-import static christmas.model.MenuCategory.APPETIZER;
-import static christmas.model.MenuCategory.MAIN;
-import static christmas.model.MenuCategory.DESSERT;
-import static christmas.model.MenuCategory.BEVERAGE;
+import static christmas.model.menu.MenuCategory.APPETIZER;
+import static christmas.model.menu.MenuCategory.MAIN;
+import static christmas.model.menu.MenuCategory.DESSERT;
+import static christmas.model.menu.MenuCategory.BEVERAGE;
 
 import java.util.Map;
 import java.util.function.Function;
