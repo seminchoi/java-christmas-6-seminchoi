@@ -22,8 +22,9 @@ public class AppConfig {
                 .addEvent(new WeekDayDiscountEvent())
                 .addEvent(new WeekendDiscountEvent())
                 .addEvent(new SpecialDiscountEvent())
+                .addEvent(new DecemberBadgeEvent())
                 .addEvent(new ChampagneGiftEvent())
-                .addEvent(new DecemberBadgeEvent());
+                .setUp();
     }
 
     public InputView inputView() {

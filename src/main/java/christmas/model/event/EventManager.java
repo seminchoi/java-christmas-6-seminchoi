@@ -1,14 +1,21 @@
 package christmas.model.event;
 
 import christmas.model.planner.EventPlanner;
-import java.util.PriorityQueue;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class EventManager {
-    private final PriorityQueue<Event> events = new PriorityQueue<>();
+    private final List<Event> events = new LinkedList<>();
 
     public EventManager addEvent(final Event event) {
         validate(event);
         events.add(event);
+        return this;
+    }
+
+    public EventManager setUp() {
+        Collections.sort(events);
         return this;
     }
 
