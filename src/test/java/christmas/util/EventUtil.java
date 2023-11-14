@@ -8,9 +8,21 @@ import christmas.model.menu.Menu;
 import christmas.model.order.ClientOrders;
 import christmas.model.order.GiftOrders;
 import christmas.model.planner.EventPlanner;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class EventUtil {
+    public static Map<String, Integer> createTestOrders() {
+        final Map<String, Integer> orders = new HashMap<>();
+        orders.put("시저샐러드", 5);
+        orders.put("해산물파스타", 5);
+        orders.put("초코케이크", 5);
+        orders.put("제로콜라", 5);
+
+        return orders;
+    }
+
     public static EventPlanner createEventPlannerByDate(final int date, final Map<String, Integer> orders) {
         final DecemberDate visitPlanDate = new DecemberDate(date);
         final ClientOrders clientOrders = new ClientOrders(orders);
