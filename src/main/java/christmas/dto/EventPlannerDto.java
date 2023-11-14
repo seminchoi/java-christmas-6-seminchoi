@@ -13,7 +13,7 @@ public class EventPlannerDto {
     private OrdersDto clientOrders;
     private OrdersDto giftOrders;
     private BenefitsDto benefits;
-    private int benefitAmount;
+    private BenefitsAmountDto benefitsAmount;
     private int finalAmount;
     private BadgeDto badge;
 
@@ -24,7 +24,7 @@ public class EventPlannerDto {
                 .clientOrders(eventPlanner.getClientOrders())
                 .giftOrders(eventPlanner.getGiftOrders())
                 .benefits(eventPlanner.getBenefits())
-                .benefitAmount(eventPlanner.getTotalBenefitAmount())
+                .benefitsAmount(eventPlanner.getTotalBenefitAmount())
                 .finalAmount(eventPlanner.getFinalAmount())
                 .badge(eventPlanner.getBadge())
                 .build();
@@ -36,7 +36,7 @@ public class EventPlannerDto {
         this.clientOrders = builder.clientOrders;
         this.giftOrders = builder.giftOrders;
         this.benefits = builder.benefits;
-        this.benefitAmount = builder.benefitAmount;
+        this.benefitsAmount = builder.benefitsAmount;
         this.finalAmount = builder.finalAmount;
         this.badge = builder.badge;
     }
@@ -47,7 +47,7 @@ public class EventPlannerDto {
         private OrdersDto clientOrders;
         private OrdersDto giftOrders;
         private BenefitsDto benefits;
-        private int benefitAmount;
+        private BenefitsAmountDto benefitsAmount;
         private int finalAmount;
         private BadgeDto badge;
 
@@ -76,8 +76,8 @@ public class EventPlannerDto {
             return this;
         }
 
-        public Builder benefitAmount(final int benefitAmount) {
-            this.benefitAmount = benefitAmount;
+        public Builder benefitsAmount(final int benefitAmount) {
+            this.benefitsAmount = new BenefitsAmountDto(benefitAmount);
             return this;
         }
 
@@ -94,37 +94,5 @@ public class EventPlannerDto {
         public EventPlannerDto build() {
             return new EventPlannerDto(this);
         }
-    }
-
-    public VisitPlanDateDto getVisitPlanDateDto() {
-        return visitPlanDateDto;
-    }
-
-    public int getAmountBeforeDiscount() {
-        return amountBeforeDiscount;
-    }
-
-    public OrdersDto getClientOrders() {
-        return clientOrders;
-    }
-
-    public OrdersDto getGiftOrders() {
-        return giftOrders;
-    }
-
-    public BenefitsDto getBenefits() {
-        return benefits;
-    }
-
-    public int getBenefitAmount() {
-        return benefitAmount;
-    }
-
-    public int getFinalAmount() {
-        return finalAmount;
-    }
-
-    public BadgeDto getBadge() {
-        return badge;
     }
 }
