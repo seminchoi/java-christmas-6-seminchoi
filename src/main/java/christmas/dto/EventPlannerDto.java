@@ -14,7 +14,7 @@ public class EventPlannerDto {
     private final OrdersDto giftOrders;
     private final BenefitsDto benefits;
     private final BenefitsAmountDto benefitsAmount;
-    private final int finalAmount;
+    private final PaymentAmountDto paymentAmount;
     private final BadgeDto badge;
 
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
@@ -25,7 +25,7 @@ public class EventPlannerDto {
                 .giftOrders(eventPlanner.getGiftOrders())
                 .benefits(eventPlanner.getBenefits())
                 .benefitsAmount(eventPlanner.getBenefitsAmount())
-                .finalAmount(eventPlanner.getFinalAmount())
+                .paymentAmount(eventPlanner.getPaymentAmount())
                 .badge(eventPlanner.getBadge())
                 .build();
     }
@@ -37,7 +37,7 @@ public class EventPlannerDto {
         this.giftOrders = builder.giftOrders;
         this.benefits = builder.benefits;
         this.benefitsAmount = builder.benefitsAmount;
-        this.finalAmount = builder.finalAmount;
+        this.paymentAmount = builder.paymentAmount;
         this.badge = builder.badge;
     }
 
@@ -48,7 +48,7 @@ public class EventPlannerDto {
         private OrdersDto giftOrders;
         private BenefitsDto benefits;
         private BenefitsAmountDto benefitsAmount;
-        private int finalAmount;
+        private PaymentAmountDto paymentAmount;
         private BadgeDto badge;
 
         public Builder visitPlanDate(final DecemberDate decemberDate) {
@@ -81,8 +81,8 @@ public class EventPlannerDto {
             return this;
         }
 
-        public Builder finalAmount(final int finalAmount) {
-            this.finalAmount = finalAmount;
+        public Builder paymentAmount(final int paymentAmount) {
+            this.paymentAmount = new PaymentAmountDto(paymentAmount);
             return this;
         }
 

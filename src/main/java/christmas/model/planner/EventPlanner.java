@@ -48,7 +48,7 @@ public class EventPlanner {
         return benefits.sumTotalBenefitAmount();
     }
 
-    public int getFinalAmount() {
+    public int getPaymentAmount() {
         int totalAmount = clientOrders.sumTotalAmount() + giftOrders.sumTotalAmount();
         return totalAmount + getBenefitsAmount();
     }
