@@ -1,9 +1,8 @@
-package christmas.model.event.appliciable;
+package christmas.model.event.applicable;
 
 import static christmas.model.menu.Menu.CHAMPAGNE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import christmas.model.event.applicable.ChampagneGiftEvent;
 import christmas.model.menu.Menu;
 import christmas.model.planner.EventPlanner;
 import christmas.util.EventUtil;

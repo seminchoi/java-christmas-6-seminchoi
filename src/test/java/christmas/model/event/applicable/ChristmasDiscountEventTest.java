@@ -1,10 +1,9 @@
-package christmas.model.event.appliciable;
+package christmas.model.event.applicable;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.util.EventUtil;
 import christmas.model.event.EventKind;
-import christmas.model.event.applicable.ChristmasDiscountEvent;
 import christmas.model.planner.EventPlanner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

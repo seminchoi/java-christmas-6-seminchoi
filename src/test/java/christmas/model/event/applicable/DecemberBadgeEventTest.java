@@ -1,9 +1,8 @@
-package christmas.model.event.appliciable;
+package christmas.model.event.applicable;
 
 import static christmas.model.event.EventKind.MENU_GIFT;
 import static christmas.model.menu.Menu.CHAMPAGNE;
 
-import christmas.model.event.applicable.DecemberBadgeEvent;
 import christmas.model.event.badge.Badge;
 import christmas.model.event.badge.DecemberBadge;
 import christmas.model.planner.EventPlanner;
