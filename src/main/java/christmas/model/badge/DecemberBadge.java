@@ -15,7 +15,7 @@ public enum DecemberBadge implements Badge {
         this.minBenefitAmountForReceiving = minBenefitAmountForReceiving;
     }
 
-    public static Badge findByBenefitAmount(final int benefitAmount) {
+    public static DecemberBadge findByBenefitAmount(final int benefitAmount) {
         for (DecemberBadge badge : DecemberBadge.values()) {
             if(isSatisfiedEventCondition(badge, benefitAmount)) {
                 return badge;
