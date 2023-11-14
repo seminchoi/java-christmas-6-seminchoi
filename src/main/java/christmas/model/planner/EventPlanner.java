@@ -23,7 +23,11 @@ public class EventPlanner {
 
     public void addGiftOrder(final EventKind eventKind, final Menu menu, final int count) {
         giftOrders.addOrder(menu, count);
-        benefits.addResult(eventKind, (-1) * menu.getPrice() * count);
+        benefits.addResult(eventKind, calculateGiftBenefit(menu, count));
+    }
+
+    private int calculateGiftBenefit(final Menu menu, final int count) {
+        return (-1) * menu.calculatePriceByPurchaseCount(count);
     }
 
     public void addBenefit(final EventKind eventKind, final int discountAmount) {

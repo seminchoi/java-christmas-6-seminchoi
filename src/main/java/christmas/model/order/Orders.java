@@ -24,8 +24,8 @@ public abstract class Orders {
     }
 
     private int calculateMenuAmount(final Menu menu) {
-        int menuOrderCount = orders.get(menu);
-        return menu.getPrice() * menuOrderCount;
+        final int menuOrderCount = orders.get(menu);
+        return menu.calculatePriceByPurchaseCount(menuOrderCount);
     }
 
     public Map<Menu, Integer> getOrders() {

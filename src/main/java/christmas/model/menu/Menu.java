@@ -36,17 +36,21 @@ public enum Menu {
     private final MenuCategory category;
     private final int price;
 
-    Menu(String name, MenuCategory category, int price) {
+    Menu(final String name, final MenuCategory category, final int price) {
         this.name = name;
         this.category = category;
         this.price = price;
     }
 
-    public static Menu getMenuByName(String name) {
+    public static Menu getMenuByName(final String name) {
         if (nameToMenu.containsKey(name)) {
             return nameToMenu.get(name);
         }
         throw new IllegalArgumentException(INVALID_ORDERS.getMessage());
+    }
+
+    public int calculatePriceByPurchaseCount(final int purchaseCount) {
+        return price * purchaseCount;
     }
 
     public String getName() {
