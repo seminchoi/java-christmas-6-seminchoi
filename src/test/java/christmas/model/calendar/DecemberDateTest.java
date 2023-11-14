@@ -14,7 +14,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class DecemberDateTest {
+class DecemberDateTest {
 
     @ParameterizedTest
     @DisplayName("유효하지 않은 날짜를 통해 생성하려 하면 예외가 발생한다.")

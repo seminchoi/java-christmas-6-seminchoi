@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-public class MenuTest {
+class MenuTest {
 
     @ParameterizedTest
     @DisplayName("메뉴 이름을 전달하여 메뉴 상수를 반환받는다.")

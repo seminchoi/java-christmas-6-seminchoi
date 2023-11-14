@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.time.DayOfWeek;
 import java.util.List;
 
-public class DayTest {
+class DayTest {
 
     @DisplayName("DayofWeek 객체를 Day 객체로 변환할 때 예외가 발생하지 않는다.")
     @Test

@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class DecemberBadgeTest {
+class DecemberBadgeTest {
     @DisplayName("혜택 금액이 20,000원 이상이면 산타 배지를 받는다.")
     @Test
     void given_benefitAmount_when_findBadgeBy_then_santa() {
