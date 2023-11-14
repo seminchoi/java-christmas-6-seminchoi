@@ -1,12 +1,14 @@
 package christmas.model.event;
 
 import christmas.model.event.applicable.Event;
+import christmas.model.order.ClientOrders;
 import christmas.model.planner.EventPlanner;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class EventManager {
+    private final static int MIN_ORDER_AMOUNT_FOR_EVENT = 10_000;
     private final List<Event> events = new LinkedList<>();
 
     public EventManager addEvent(final Event event) {
@@ -33,8 +35,13 @@ public class EventManager {
     }
 
     public void applyEvents(final EventPlanner eventPlanner) {
-        for (Event event : events) {
-            event.apply(eventPlanner);
+        if(isEventApplicable(eventPlanner)) {
+            events.forEach(event -> event.apply(eventPlanner));
         }
+    }
+
+    private boolean isEventApplicable(final EventPlanner eventPlanner) {
+        ClientOrders clientOrders = eventPlanner.getClientOrders();
+        return clientOrders.sumTotalAmount() >= MIN_ORDER_AMOUNT_FOR_EVENT;
     }
 }
