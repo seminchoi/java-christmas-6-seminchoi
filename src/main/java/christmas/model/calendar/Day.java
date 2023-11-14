@@ -6,7 +6,7 @@ public enum Day {
     SUNDAY(true),
     MONDAY(true),
     TUESDAY(true),
-    WENDESDAY(true),
+    WEDNESDAY(true),
     THURSDAY(true),
     FRIDAY(false),
     SATURDAY(false),
