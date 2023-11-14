@@ -3,6 +3,7 @@ package christmas.view;
 import static christmas.message.OutputMessage.*;
 import static christmas.message.TitleMessage.*;
 
+import christmas.dto.BadgeDto;
 import christmas.dto.EventPlannerDto;
 import christmas.message.MessageBuilder;
 import christmas.message.OutputMessage;
@@ -123,10 +124,8 @@ public class OutputView {
     private List<Consumer<MessageBuilder>> createBadgesConsumers(final EventPlannerDto eventPlannerDto) {
         List<Consumer<MessageBuilder>> consumers = new ArrayList<>();
 
-        Map<String, String> badges = eventPlannerDto.badges();
-        for (String event : badges.keySet()) {
-            consumers.add(createBadgeConsumer(event, badges.get(event)));
-        }
+        BadgeDto badge = eventPlannerDto.badge();
+        //TODO : 뱃지 출력
 
         return consumers;
     }

@@ -1,7 +1,5 @@
 package christmas.dto;
 
-import christmas.model.event.badge.Badge;
-import christmas.model.event.result.Badges;
 import christmas.model.planner.EventPlanner;
 import christmas.model.menu.Menu;
 import christmas.model.order.Orders;
@@ -18,7 +16,7 @@ public record EventPlannerDto(
         Map<String, Integer> benefits,
         int benefitAmount,
         int finalAmount,
-        Map<String, String> badges
+        BadgeDto badge
 ) {
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
         int date = eventPlanner.getVisitPlanDate().getDate();
@@ -28,10 +26,10 @@ public record EventPlannerDto(
         Map<String, Integer>  benefits = convertBenefits(eventPlanner.getBenefits());
         int benefitAmount = eventPlanner.getTotalBenefitAmount();
         int finalAmount = eventPlanner.getFinalAmount();
-        Map<String, String> badges = convertBadgeResult(eventPlanner.getBadges());
+        BadgeDto badgeDto = BadgeDto.of(eventPlanner.getBadge());
 
         return new EventPlannerDto(
-                date, amountBeforeDiscount, clientOrders, giftOrders, benefits, benefitAmount, finalAmount, badges
+                date, amountBeforeDiscount, clientOrders, giftOrders, benefits, benefitAmount, finalAmount, badgeDto
         );
     }
 
@@ -54,18 +52,6 @@ public record EventPlannerDto(
                 .collect(
                         LinkedHashMap::new,
                         (map, entry) -> map.put(entry.getKey().getDescription(), entry.getValue()),
-                        Map::putAll
-                );
-    }
-
-    private static Map<String, String> convertBadgeResult(final Badges badges) {
-        final Map<EventKind, Badge> eventToBadge = badges.getBadges();
-
-        return eventToBadge.entrySet()
-                .stream()
-                .collect(
-                        LinkedHashMap::new,
-                        (map, entry) -> map.put(entry.getKey().getDescription(), entry.getValue().getDescription()),
                         Map::putAll
                 );
     }

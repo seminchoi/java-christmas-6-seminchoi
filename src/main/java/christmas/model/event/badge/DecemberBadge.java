@@ -1,5 +1,9 @@
 package christmas.model.event.badge;
 
+import static christmas.model.event.EventKind.DECEMBER_BADGE;
+
+import christmas.model.event.EventKind;
+
 public enum DecemberBadge implements Badge {
     SANTA("산타", -20_000),
     TREE("트리", -10_000),
@@ -7,6 +11,7 @@ public enum DecemberBadge implements Badge {
     NOTHING("없음", 0)
     ;
 
+    private static final EventKind eventKind = DECEMBER_BADGE;
     private final String description;
     private final int minBenefitAmountForReceiving;
 
@@ -26,6 +31,11 @@ public enum DecemberBadge implements Badge {
 
     private static boolean isSatisfiedEventCondition(final DecemberBadge badge, final int benefitAmount) {
         return badge.minBenefitAmountForReceiving >= benefitAmount;
+    }
+
+    @Override
+    public EventKind getEventKind() {
+        return eventKind;
     }
 
     @Override

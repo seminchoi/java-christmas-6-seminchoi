@@ -1,7 +1,8 @@
 package christmas.model.planner;
 
+import static christmas.model.event.badge.DecemberBadge.NOTHING;
+
 import christmas.model.event.badge.Badge;
-import christmas.model.event.result.Badges;
 import christmas.model.calendar.DecemberDate;
 import christmas.model.event.result.Benefits;
 import christmas.model.menu.Menu;
@@ -14,7 +15,8 @@ public class EventPlanner {
     private final ClientOrders clientOrders;
     private final GiftOrders giftOrders = new GiftOrders();
     private final Benefits benefits = new Benefits();
-    private final Badges badges = new Badges();
+
+    private Badge badge = NOTHING;
 
     public EventPlanner(DecemberDate visitPlanDate, ClientOrders clientOrders) {
         this.visitPlanDate = visitPlanDate;
@@ -34,8 +36,8 @@ public class EventPlanner {
         benefits.addResult(eventKind, discountAmount);
     }
 
-    public void addBadge(final EventKind eventKind, final Badge badge) {
-        badges.add(eventKind, badge);
+    public void setBadge(final Badge badge) {
+        this.badge = badge;
     }
 
     public int getTotalAmountBeforeDiscount() {
@@ -67,7 +69,7 @@ public class EventPlanner {
         return benefits;
     }
 
-    public Badges getBadges() {
-        return badges;
+    public Badge getBadge() {
+        return badge;
     }
 }

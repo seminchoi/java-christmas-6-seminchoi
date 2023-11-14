@@ -1,7 +1,6 @@
 package christmas.model.event.result;
 
 import christmas.model.event.EventKind;
-
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
