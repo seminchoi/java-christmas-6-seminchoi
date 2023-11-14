@@ -14,10 +14,9 @@ public class DecemberBadgeEvent implements Event {
     @Override
     public void apply(final EventPlanner eventPlanner) {
         int totalBenefitAmount = eventPlanner.getTotalBenefitAmount();
-        Optional<Badge> optionalBadge = DecemberBadge.findByBenefitAmount(totalBenefitAmount);
+        Badge badge = DecemberBadge.findByBenefitAmount(totalBenefitAmount);
 
-        Badges badges = eventPlanner.getBadges();
-        optionalBadge.ifPresent(badge -> badges.add(kind, badge));
+        eventPlanner.addBadge(kind, badge);
     }
 
     @Override

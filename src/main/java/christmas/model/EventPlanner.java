@@ -2,7 +2,10 @@ package christmas.model;
 
 import christmas.model.calendar.DecemberDate;
 import christmas.model.event.BenefitResult;
+import christmas.model.event.Event;
 import christmas.model.event.EventKind;
+
+import java.util.Optional;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;
@@ -23,6 +26,10 @@ public class EventPlanner {
 
     public void addBenefitResult(final EventKind eventKind, final int discountAmount) {
         benefitResult.addResult(eventKind, discountAmount);
+    }
+
+    public void addBadge(final EventKind eventKind, final Badge badge) {
+        badges.add(eventKind, badge);
     }
 
     public int getTotalAmountBeforeDiscount() {
