@@ -1,4 +1,4 @@
-package christmas.model.badge;
+package christmas.model.event.badge;
 
 public enum DecemberBadge implements Badge {
     SANTA("산타", -20_000),

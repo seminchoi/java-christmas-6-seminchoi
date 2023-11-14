@@ -1,7 +1,8 @@
-package christmas.model.event;
+package christmas.model.event.applicable;
 
 import static christmas.model.event.EventKind.CHRISTMAS_DISCOUNT;
 
+import christmas.model.event.EventKind;
 import christmas.model.planner.EventPlanner;
 import christmas.model.calendar.DecemberDate;
 

@@ -13,23 +13,23 @@ public class DecemberDate {
 
     private final LocalDate date;
 
-    public DecemberDate(int date) {
+    public DecemberDate(final int date) {
         validate(date);
         this.date = LocalDate.of(YEAR, MONTH, date);
     }
 
-    private void validate(int date) {
+    private void validate(final int date) {
         if (isOutOfRangeDate(date)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_DATE.getMessage());
         }
     }
 
-    private boolean isOutOfRangeDate(int date) {
+    private boolean isOutOfRangeDate(final int date) {
         return date < MIN_DATE || date > MAX_DATE;
     }
 
     public Day getDay() {
-        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        final DayOfWeek dayOfWeek = date.getDayOfWeek();
         return Day.of(dayOfWeek);
     }
 

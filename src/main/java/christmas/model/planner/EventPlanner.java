@@ -1,9 +1,13 @@
 package christmas.model.planner;
 
-import christmas.model.badge.Badge;
+import christmas.model.event.badge.Badge;
+import christmas.model.event.result.Badges;
 import christmas.model.calendar.DecemberDate;
+import christmas.model.event.result.Benefits;
 import christmas.model.menu.Menu;
 import christmas.model.event.EventKind;
+import christmas.model.order.ClientOrders;
+import christmas.model.order.GiftOrders;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;

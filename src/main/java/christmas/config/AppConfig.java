@@ -1,13 +1,13 @@
 package christmas.config;
 
 import christmas.controller.EventPlannerController;
-import christmas.model.event.ChampagneGiftEvent;
-import christmas.model.event.ChristmasDiscountEvent;
-import christmas.model.event.DecemberBadgeEvent;
+import christmas.model.event.applicable.ChampagneGiftEvent;
+import christmas.model.event.applicable.ChristmasDiscountEvent;
+import christmas.model.event.applicable.DecemberBadgeEvent;
 import christmas.model.event.EventManager;
-import christmas.model.event.SpecialDiscountEvent;
-import christmas.model.event.WeekDayDiscountEvent;
-import christmas.model.event.WeekendDiscountEvent;
+import christmas.model.event.applicable.SpecialDiscountEvent;
+import christmas.model.event.applicable.WeekDayDiscountEvent;
+import christmas.model.event.applicable.WeekendDiscountEvent;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 

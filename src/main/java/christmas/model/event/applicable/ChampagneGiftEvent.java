@@ -1,9 +1,10 @@
-package christmas.model.event;
+package christmas.model.event.applicable;
 
 import static christmas.model.menu.Menu.CHAMPAGNE;
 import static christmas.model.event.EventKind.MENU_GIFT;
 
-import christmas.model.planner.ClientOrders;
+import christmas.model.event.EventKind;
+import christmas.model.order.ClientOrders;
 import christmas.model.planner.EventPlanner;
 import christmas.model.menu.Menu;
 

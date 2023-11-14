@@ -1,11 +1,11 @@
 package christmas.dto;
 
-import christmas.model.badge.Badge;
-import christmas.model.planner.Badges;
+import christmas.model.event.badge.Badge;
+import christmas.model.event.result.Badges;
 import christmas.model.planner.EventPlanner;
 import christmas.model.menu.Menu;
-import christmas.model.planner.Orders;
-import christmas.model.planner.Benefits;
+import christmas.model.order.Orders;
+import christmas.model.event.result.Benefits;
 import christmas.model.event.EventKind;
 import java.util.LinkedHashMap;
 import java.util.Map;

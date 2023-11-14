@@ -1,5 +1,6 @@
 package christmas.model.event;
 
+import christmas.model.event.applicable.Event;
 import christmas.model.planner.EventPlanner;
 import java.util.Collections;
 import java.util.LinkedList;

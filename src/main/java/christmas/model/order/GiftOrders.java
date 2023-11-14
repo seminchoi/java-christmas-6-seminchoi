@@ -1,4 +1,4 @@
-package christmas.model.planner;
+package christmas.model.order;
 
 import christmas.model.menu.Menu;
 

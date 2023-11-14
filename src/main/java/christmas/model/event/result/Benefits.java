@@ -1,4 +1,4 @@
-package christmas.model.planner;
+package christmas.model.event.result;
 
 import christmas.model.event.EventKind;
 

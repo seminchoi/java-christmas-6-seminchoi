@@ -1,5 +1,7 @@
-package christmas.model.event;
+package christmas.model.event.applicable;
 
+import christmas.model.event.EventCategory;
+import christmas.model.event.EventKind;
 import christmas.model.planner.EventPlanner;
 
 public interface Event extends Comparable<Event> {

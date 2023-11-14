@@ -1,8 +1,9 @@
-package christmas.model.event;
+package christmas.model.event.applicable;
 
 import static christmas.model.menu.MenuCategory.DESSERT;
 import static christmas.model.event.EventKind.WEEK_DAY_DISCOUNT;
 
+import christmas.model.event.EventKind;
 import christmas.model.menu.Menu;
 import christmas.model.menu.MenuCategory;
 import christmas.model.calendar.DecemberDate;

@@ -1,6 +1,6 @@
-package christmas.model.event;
+package christmas.model.event.applicable;
 
-import christmas.model.planner.ClientOrders;
+import christmas.model.order.ClientOrders;
 import christmas.model.planner.EventPlanner;
 import christmas.model.menu.Menu;
 import christmas.model.calendar.DecemberDate;
