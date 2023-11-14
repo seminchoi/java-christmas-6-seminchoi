@@ -1,5 +1,6 @@
 package christmas.dto;
 
+import christmas.model.calendar.DecemberDate;
 import christmas.model.event.badge.Badge;
 import christmas.model.event.result.Benefits;
 import christmas.model.order.ClientOrders;
@@ -7,7 +8,7 @@ import christmas.model.order.GiftOrders;
 import christmas.model.planner.EventPlanner;
 
 public class EventPlannerDto {
-    private int date;
+    private VisitPlanDateDto visitPlanDateDto;
     private int amountBeforeDiscount;
     private OrdersDto clientOrders;
     private OrdersDto giftOrders;
@@ -18,7 +19,7 @@ public class EventPlannerDto {
 
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
         return new Builder()
-                .date(eventPlanner.getVisitPlanDate().getDate())
+                .visitPlanDate(eventPlanner.getVisitPlanDate())
                 .amountBeforeDiscount(eventPlanner.getTotalAmountBeforeDiscount())
                 .clientOrders(eventPlanner.getClientOrders())
                 .giftOrders(eventPlanner.getGiftOrders())
@@ -30,7 +31,7 @@ public class EventPlannerDto {
     }
 
     public EventPlannerDto (final Builder builder) {
-        this.date = builder.date;
+        this.visitPlanDateDto = builder.visitPlanDate;
         this.amountBeforeDiscount = builder.amountBeforeDiscount;
         this.clientOrders = builder.clientOrders;
         this.giftOrders = builder.giftOrders;
@@ -41,7 +42,7 @@ public class EventPlannerDto {
     }
 
     public static class Builder {
-        private int date;
+        private VisitPlanDateDto visitPlanDate;
         private int amountBeforeDiscount;
         private OrdersDto clientOrders;
         private OrdersDto giftOrders;
@@ -50,8 +51,8 @@ public class EventPlannerDto {
         private int finalAmount;
         private BadgeDto badge;
 
-        public Builder date(final int date) {
-            this.date = date;
+        public Builder visitPlanDate(final DecemberDate decemberDate) {
+            this.visitPlanDate = VisitPlanDateDto.of(decemberDate);
             return this;
         }
 
@@ -95,8 +96,8 @@ public class EventPlannerDto {
         }
     }
 
-    public int getDate() {
-        return date;
+    public VisitPlanDateDto getVisitPlanDateDto() {
+        return visitPlanDateDto;
     }
 
     public int getAmountBeforeDiscount() {
