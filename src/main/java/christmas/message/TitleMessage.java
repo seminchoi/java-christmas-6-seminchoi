@@ -1,7 +1,7 @@
 package christmas.message;
 
 public enum TitleMessage {
-    TITLE_FORMAT("<%s>"),
+    TITLE_FORMAT("<%s>\n"),
 
     CLIENT_ORDER_MENU_TITLE("주문 메뉴"),
     AMOUNT_BEFORE_DISCOUNT_TITLE("할인 전 총주문 금액"),
