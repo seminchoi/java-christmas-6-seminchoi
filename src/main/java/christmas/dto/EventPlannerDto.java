@@ -6,6 +6,7 @@ import christmas.model.event.result.Benefits;
 import christmas.model.order.ClientOrders;
 import christmas.model.order.GiftOrders;
 import christmas.model.planner.EventPlanner;
+import java.util.StringJoiner;
 
 public class EventPlannerDto {
     private final VisitPlanDateDto visitPlanDateDto;
@@ -94,5 +95,20 @@ public class EventPlannerDto {
         public EventPlannerDto build() {
             return new EventPlannerDto(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        final StringJoiner stringJoiner = new StringJoiner("\n");
+        stringJoiner.add(visitPlanDateDto.toString());
+        stringJoiner.add(ordersAmountDto.toString());
+        stringJoiner.add(clientOrders.toString());
+        stringJoiner.add(giftOrders.toString());
+        stringJoiner.add(benefits.toString());
+        stringJoiner.add(benefitsAmount.toString());
+        stringJoiner.add(paymentAmount.toString());
+        stringJoiner.add(badge.toString());
+
+        return stringJoiner.toString();
     }
 }
