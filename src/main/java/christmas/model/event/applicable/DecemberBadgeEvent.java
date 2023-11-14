@@ -15,7 +15,7 @@ public class DecemberBadgeEvent implements Event {
         int totalBenefitAmount = eventPlanner.getTotalBenefitAmount();
         Badge badge = DecemberBadge.findByBenefitAmount(totalBenefitAmount);
 
-        eventPlanner.addBadge(kind, badge);
+        eventPlanner.setBadge(badge);
     }
 
     @Override
