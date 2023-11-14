@@ -1,7 +1,6 @@
 package christmas.model;
 
-import christmas.message.ErrorMessage;
-
+import static christmas.message.ErrorMessage.INVALID_ORDERS;
 import static christmas.model.MenuCategory.APPETIZER;
 import static christmas.model.MenuCategory.MAIN;
 import static christmas.model.MenuCategory.DESSERT;
@@ -47,7 +46,7 @@ public enum Menu {
         if (nameToMenu.containsKey(name)) {
             return nameToMenu.get(name);
         }
-        throw new IllegalArgumentException(ErrorMessage.INVALID_ORDERS.getMessage());
+        throw new IllegalArgumentException(INVALID_ORDERS.getMessage());
     }
 
     public String getName() {

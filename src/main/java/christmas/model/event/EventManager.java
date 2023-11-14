@@ -1,7 +1,6 @@
 package christmas.model.event;
 
 import christmas.model.EventPlanner;
-
 import java.util.PriorityQueue;
 
 public class EventManager {

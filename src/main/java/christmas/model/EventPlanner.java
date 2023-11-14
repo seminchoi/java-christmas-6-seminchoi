@@ -2,10 +2,7 @@ package christmas.model;
 
 import christmas.model.calendar.DecemberDate;
 import christmas.model.event.BenefitResult;
-import christmas.model.event.Event;
 import christmas.model.event.EventKind;
-
-import java.util.Optional;
 
 public class EventPlanner {
     private final DecemberDate visitPlanDate;

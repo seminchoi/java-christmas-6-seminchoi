@@ -7,7 +7,6 @@ import christmas.dto.EventPlannerDto;
 import christmas.message.MessageBuilder;
 import christmas.message.OutputMessage;
 import christmas.message.TitleMessage;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
