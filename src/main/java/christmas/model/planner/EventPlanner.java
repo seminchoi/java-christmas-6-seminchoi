@@ -40,17 +40,17 @@ public class EventPlanner {
         this.badge = badge;
     }
 
-    public int getTotalAmountBeforeDiscount() {
+    public int getOrdersAmount() {
         return clientOrders.sumTotalAmount();
     }
 
-    public int getTotalBenefitAmount() {
+    public int getBenefitsAmount() {
         return benefits.sumTotalBenefitAmount();
     }
 
     public int getFinalAmount() {
         int totalAmount = clientOrders.sumTotalAmount() + giftOrders.sumTotalAmount();
-        return totalAmount + getTotalBenefitAmount();
+        return totalAmount + getBenefitsAmount();
     }
 
     public DecemberDate getVisitPlanDate() {

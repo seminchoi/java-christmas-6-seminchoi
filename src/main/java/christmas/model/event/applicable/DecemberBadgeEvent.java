@@ -12,7 +12,7 @@ public class DecemberBadgeEvent implements Event {
 
     @Override
     public void apply(final EventPlanner eventPlanner) {
-        int totalBenefitAmount = eventPlanner.getTotalBenefitAmount();
+        int totalBenefitAmount = eventPlanner.getBenefitsAmount();
         Badge badge = DecemberBadge.findByBenefitAmount(totalBenefitAmount);
 
         eventPlanner.setBadge(badge);

@@ -8,23 +8,23 @@ import christmas.model.order.GiftOrders;
 import christmas.model.planner.EventPlanner;
 
 public class EventPlannerDto {
-    private VisitPlanDateDto visitPlanDateDto;
-    private int amountBeforeDiscount;
-    private OrdersDto clientOrders;
-    private OrdersDto giftOrders;
-    private BenefitsDto benefits;
-    private BenefitsAmountDto benefitsAmount;
-    private int finalAmount;
-    private BadgeDto badge;
+    private final VisitPlanDateDto visitPlanDateDto;
+    private final OrdersAmountDto ordersAmountDto;
+    private final OrdersDto clientOrders;
+    private final OrdersDto giftOrders;
+    private final BenefitsDto benefits;
+    private final BenefitsAmountDto benefitsAmount;
+    private final int finalAmount;
+    private final BadgeDto badge;
 
     public static EventPlannerDto of(final EventPlanner eventPlanner) {
         return new Builder()
                 .visitPlanDate(eventPlanner.getVisitPlanDate())
-                .amountBeforeDiscount(eventPlanner.getTotalAmountBeforeDiscount())
+                .ordersAmount(eventPlanner.getOrdersAmount())
                 .clientOrders(eventPlanner.getClientOrders())
                 .giftOrders(eventPlanner.getGiftOrders())
                 .benefits(eventPlanner.getBenefits())
-                .benefitsAmount(eventPlanner.getTotalBenefitAmount())
+                .benefitsAmount(eventPlanner.getBenefitsAmount())
                 .finalAmount(eventPlanner.getFinalAmount())
                 .badge(eventPlanner.getBadge())
                 .build();
@@ -32,7 +32,7 @@ public class EventPlannerDto {
 
     public EventPlannerDto (final Builder builder) {
         this.visitPlanDateDto = builder.visitPlanDate;
-        this.amountBeforeDiscount = builder.amountBeforeDiscount;
+        this.ordersAmountDto = builder.ordersAmount;
         this.clientOrders = builder.clientOrders;
         this.giftOrders = builder.giftOrders;
         this.benefits = builder.benefits;
@@ -43,7 +43,7 @@ public class EventPlannerDto {
 
     public static class Builder {
         private VisitPlanDateDto visitPlanDate;
-        private int amountBeforeDiscount;
+        private OrdersAmountDto ordersAmount;
         private OrdersDto clientOrders;
         private OrdersDto giftOrders;
         private BenefitsDto benefits;
@@ -56,8 +56,8 @@ public class EventPlannerDto {
             return this;
         }
 
-        public Builder amountBeforeDiscount(final int amountBeforeDiscount) {
-            this.amountBeforeDiscount = amountBeforeDiscount;
+        public Builder ordersAmount(final int ordersAmount) {
+            this.ordersAmount = new OrdersAmountDto(ordersAmount);
             return this;
         }
 
