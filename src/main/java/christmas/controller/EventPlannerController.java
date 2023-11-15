@@ -31,6 +31,7 @@ public class EventPlannerController {
     private EventPlanner createEventPlanner() {
         final DecemberDate decemberDate = createDecemberDate();
         final ClientOrders clientOrders = createClientOrders();
+        inputView.finishInput();
         return new EventPlanner(decemberDate, clientOrders);
     }
 
