@@ -1,13 +1,15 @@
 package christmas.dto;
 
 import christmas.message.TitleMessage;
+import christmas.model.event.EventKind;
 import christmas.model.event.badge.Badge;
 
 public record BadgeDto(String eventKind, String badgeName) {
     public static BadgeDto of(final Badge badge) {
-        final String eventKind = badge.getEventKind().getDescription();
+        final EventKind event = badge.getEventKind();
+        final String eventDescription = event.getDescription();
         final String badgeName = badge.getDescription();
-        return new BadgeDto(eventKind, badgeName);
+        return new BadgeDto(eventDescription, badgeName);
     }
 
     @Override

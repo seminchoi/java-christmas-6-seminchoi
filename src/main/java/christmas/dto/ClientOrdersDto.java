@@ -11,35 +11,38 @@ import java.util.Map;
 
 public record ClientOrdersDto(Map<String, Integer> orders) {
     public static ClientOrdersDto of(final Orders orders) {
-        final Map<Menu, Integer> menuToCount = orders.getOrders();
+        final Map<Menu, Integer> ordersDetail = orders.getOrders();
 
-        final Map<String, Integer> convertedOrders = menuToCount.entrySet()
+        return new ClientOrdersDto(convertOrders(ordersDetail));
+    }
+
+    private static Map<String, Integer> convertOrders(Map<Menu, Integer> ordersDetail) {
+        return ordersDetail.entrySet()
                 .stream()
                 .collect(
                         LinkedHashMap::new,
                         (map, entry) -> map.put(entry.getKey().getName(), entry.getValue()),
                         Map::putAll
                 );
-
-        return new ClientOrdersDto(convertedOrders);
     }
 
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();
+
         final String title = CLIENT_ORDER_MENU_TITLE.getMessage();
         stringBuilder.append(title);
-
-        if(orders.isEmpty()) {
-            stringBuilder.append(NOTHING.getMessage());
-            return stringBuilder.toString();
-        }
         addContent(stringBuilder);
 
         return stringBuilder.toString();
     }
 
     private void addContent(final StringBuilder stringBuilder) {
+        if(orders.isEmpty()) {
+            stringBuilder.append(NOTHING.getMessage());
+            return;
+        }
+
         for (String menu : orders.keySet()) {
             final int count = orders.get(menu);
             stringBuilder.append(makeOrderDetail(menu, count));
