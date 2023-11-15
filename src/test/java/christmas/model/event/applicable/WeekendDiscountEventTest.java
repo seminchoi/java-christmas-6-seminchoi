@@ -6,7 +6,8 @@ import christmas.model.event.EventKind;
 import christmas.model.planner.EventPlanner;
 import christmas.util.EventUtil;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +18,10 @@ public class WeekendDiscountEventTest {
     private final WeekendDiscountEvent weekendDiscountEvent = new WeekendDiscountEvent();
 
     @DisplayName("주말에는 메인 메뉴 1개당 2,023원 할인이 적용된다.")
-    @Test
-    void given_ordersAtWeekend_when_apply_then_appliedDiscount() {
-        final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(2, createOrders());
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 8, 9})
+    void given_ordersAtWeekend_when_apply_then_appliedDiscount(final int date) {
+        final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(date, createOrders());
 
         final int discountAmount = EventUtil.applyAndGetDiscountAmount(weekendDiscountEvent, eventPlanner);
 
@@ -27,9 +29,10 @@ public class WeekendDiscountEventTest {
     }
 
     @DisplayName("평일에는 할인이 적용되지 않는다.")
-    @Test
-    void given_ordersAtWeekday_when_apply_then_notAppliedDiscount() {
-        final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(3, createOrders());
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7})
+    void given_ordersAtWeekday_when_apply_then_notAppliedDiscount(final int date) {
+        final EventPlanner eventPlanner = EventUtil.createEventPlannerByDate(date, createOrders());
 
         final Map<EventKind, Integer> result = EventUtil.applyAndGetBenefits(weekendDiscountEvent, eventPlanner);
         final boolean isEventApplied = result.containsKey(weekendDiscountEvent.getKind());
