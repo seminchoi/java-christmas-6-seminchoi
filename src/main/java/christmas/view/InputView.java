@@ -62,4 +62,8 @@ public class InputView {
             throw new IllegalArgumentException(errorMessage.getMessage());
         }
     }
+
+    public void finishInput() {
+        Console.close();
+    }
 }
