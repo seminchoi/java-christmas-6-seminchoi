@@ -1,10 +1,8 @@
 package christmas.model.order;
 
-import christmas.model.menu.Menu;
-import christmas.model.menu.MenuCategory;
-
 import static christmas.message.ErrorMessage.INVALID_ORDERS;
 
+import christmas.model.menu.Menu;
 import java.util.Map;
 
 public class ClientOrders extends Orders {
@@ -46,22 +44,18 @@ public class ClientOrders extends Orders {
 
 
     private void validateMenus(final Map<String, Integer> orderMenus) {
-        if(isInvalidMenus(orderMenus)) {
+        if(hasIndividualOrderPossibleMenu(orderMenus)) {
             throw new IllegalArgumentException(INVALID_ORDERS.getMessage());
         }
     }
 
-    private boolean isInvalidMenus(final Map<String, Integer> orderMenus) {
+    private boolean hasIndividualOrderPossibleMenu(final Map<String, Integer> orderMenus) {
         for (String menuName : orderMenus.keySet()) {
             final Menu menu = Menu.getMenuByName(menuName);
-            if(canOrderIndividually(menu)) {
+            if(menu.isIndividualOrderPossible()) {
                 return false;
             }
         }
         return true;
-    }
-
-    private boolean canOrderIndividually(final Menu menu) {
-        return menu.getCategory() != MenuCategory.BEVERAGE;
     }
 }

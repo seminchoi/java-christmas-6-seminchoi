@@ -53,6 +53,10 @@ public enum Menu {
         return price * purchaseCount;
     }
 
+    public boolean isIndividualOrderPossible() {
+        return category.isIndividualOrderPossible();
+    }
+
     public String getName() {
         return name;
     }
