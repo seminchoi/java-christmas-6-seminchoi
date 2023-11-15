@@ -16,7 +16,7 @@ public record GiftOrdersDto(Map<String, Integer> orders) {
         return new GiftOrdersDto(convertOrders(ordersDetail));
     }
 
-    private static Map<String, Integer> convertOrders(Map<Menu, Integer> ordersDetail) {
+    private static Map<String, Integer> convertOrders(final Map<Menu, Integer> ordersDetail) {
         return ordersDetail.entrySet()
                 .stream()
                 .collect(
