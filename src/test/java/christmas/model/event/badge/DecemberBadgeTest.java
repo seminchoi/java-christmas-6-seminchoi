@@ -34,7 +34,7 @@ class DecemberBadgeTest {
         assertThat(badge).isEqualTo(STAR);
     }
 
-    @DisplayName("혜택 금액이 5,000원 이하이면 별 배지를 받는다.")
+    @DisplayName("혜택 금액이 5,000원 이하이면 배지를 받지 않는다.")
     @Test
     void given_benefitAmount_when_findBadgeBy_then_nothing() {
         DecemberBadge badge = given_benefitAmount_when_findByBenefitAmount(-4_999);
